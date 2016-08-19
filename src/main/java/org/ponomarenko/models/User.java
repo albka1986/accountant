@@ -1,6 +1,5 @@
 package org.ponomarenko.models;
 
-// Created by Ponomarenko Oleh on 14.06.2016.
 
 import javax.persistence.*;
 

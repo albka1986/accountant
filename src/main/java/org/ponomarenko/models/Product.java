@@ -1,9 +1,5 @@
 package org.ponomarenko.models;
 
-// Created by Ponomarenko Oleh on 14.06.2016.
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 
 @Entity
