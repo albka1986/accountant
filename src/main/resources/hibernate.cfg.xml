@@ -16,11 +16,11 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping class="org.ponomarenko.models.User"/>
-        <mapping class="org.ponomarenko.models.Product"/>
-        <mapping class="org.ponomarenko.models.Shop"/>
-        <mapping class="org.ponomarenko.models.Storage"/>
-        <mapping class="org.ponomarenko.models.Role"/>
+        <mapping class="ua.com.alfacell.models.User"/>
+        <mapping class="ua.com.alfacell.models.Product"/>
+        <mapping class="ua.com.alfacell.models.Shop"/>
+        <mapping class="ua.com.alfacell.models.Storage"/>
+        <mapping class="ua.com.alfacell.models.Role"/>
 
     </session-factory>
 </hibernate-configuration>

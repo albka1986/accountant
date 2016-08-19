@@ -1,10 +1,9 @@
-// Created by Ponomarenko Oleh on 19.08.2016.
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.Test;
-import org.ponomarenko.utilites.HibernateUtil;
+import ua.com.alfacell.utilites.HibernateUtil;
 
 public class HibernateTestConnection {
 

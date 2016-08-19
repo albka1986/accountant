@@ -1,4 +1,4 @@
-package org.ponomarenko.utilites;
+package ua.com.alfacell.utilites;
 
 // Created by Ponomarenko Oleh on 07.06.2016.
 

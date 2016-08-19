@@ -1,6 +1,5 @@
-package org.ponomarenko.models;
+package ua.com.alfacell.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;

@@ -1,4 +1,4 @@
-package org.ponomarenko.models;
+package ua.com.alfacell.models;
 
 import javax.persistence.*;
 
