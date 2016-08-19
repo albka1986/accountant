@@ -1,15 +1,19 @@
 package ua.com.alfacell.dao;
 
-// Created by Ponomarenko Oleh on 20.08.2016.
-
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import ua.com.alfacell.models.Product;
 
 import java.util.List;
 
-public class ProductDaoImpl implements CrudDao<Product> {
+public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
     @Override
     public Product findById(int id) {
-        return null;
+        Session session = getActiveSession();
+        Product product = (Product) session.createCriteria(Product.class)
+                .add(Restrictions.eq("id", id))
+                .uniqueResult();
+        return product;
     }
 
     @Override
