@@ -10,6 +10,7 @@ import java.util.List;
 
 public class DaoTests {
     CrudDao<Product> productDao = new ProductDaoImpl();
+
     //ProductDaoImpl
     @Test
     public void testFindProductById() {
@@ -35,9 +36,27 @@ public class DaoTests {
 
         productDao.save(product);
         System.out.println(productDao.findAll());
-
     }
 
+    @Test
+    public void testUpdateProduct() {
+        Product updateProduct = new Product();
+        updateProduct.setId(3);
+        updateProduct.setNameProduct("y5c");
+        updateProduct.setBrand("LG");
+        updateProduct.setImei("123123123123");
+        updateProduct.setBarcode("123123123123");
+
+        System.out.println("Before");
+        System.out.println(productDao.findAll());
+
+        productDao.update(updateProduct);
+
+        System.out.println("After");
+        System.out.println(productDao.findAll());
+
+
+    }
 
 
 }
