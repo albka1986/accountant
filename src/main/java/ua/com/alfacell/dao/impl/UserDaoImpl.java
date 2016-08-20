@@ -50,13 +50,13 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
     }
 
     @Override
-    public void update(User user) {
+    public void update(User updateUser) {
         Session session = getActiveSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            session.update(user);
+            session.update(updateUser);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();
