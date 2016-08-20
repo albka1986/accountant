@@ -5,19 +5,22 @@ import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.ProductDaoImpl;
+import ua.com.alfacell.dao.impl.ShopDaoImpl;
 import ua.com.alfacell.dao.impl.UserDaoImpl;
 import ua.com.alfacell.models.Product;
+import ua.com.alfacell.models.Shop;
 import ua.com.alfacell.models.User;
 
 import java.util.List;
 
 public class DaoTests {
 
-
     //ProductDaoImpl
     CrudDao<Product> productDao = new ProductDaoImpl();
     //UserDaoImpl
     CrudDao<User> userDao = new UserDaoImpl();
+    //ShopDaoImpl
+    CrudDao<Shop> shopDao = new ShopDaoImpl();
 
     @Test
     public void testFindProductById() {
@@ -128,5 +131,46 @@ public class DaoTests {
         System.out.println("After");
         System.out.println("Amount of users: " + userDao.findAll().size());
 
+    }
+
+    @Test
+    public void testFindShopById() {
+        Shop shop = shopDao.findById(1);
+        System.out.println(shop);
+    }
+
+    @Test
+    public void testFindAllShops() {
+        List<Shop> shops = shopDao.findAll();
+        System.out.println(shops);
+    }
+
+    @Test
+    public void testSaveShop() {
+        Shop shop = new Shop();
+        shop.setNameShop("Alekseevka");
+
+        System.out.println("");
+        System.out.println("Before");
+        System.out.println(shopDao.findAll().size());
+        shopDao.save(shop);
+        System.out.println("");
+        System.out.println("After");
+        System.out.println(shopDao.findAll().size());
+    }
+
+    @Test
+    public void testSaveTenShops() {
+        System.out.println("");
+        System.out.println("Before");
+        System.out.println("Amount of shops: " + shopDao.findAll().size());
+        for (int x = 0; x < 10; x++) {
+            Shop shop = new Shop();
+            shop.setNameShop("shop_" + x);
+            shopDao.save(shop);
+        }
+        System.out.println("");
+        System.out.println("After");
+        System.out.println("Amount of shops: " + shopDao.findAll().size());
     }
 }
