@@ -62,6 +62,20 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
 
     @Override
     public void delete(Product product) {
+        Session session = getActiveSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(product);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+
 
     }
 }
