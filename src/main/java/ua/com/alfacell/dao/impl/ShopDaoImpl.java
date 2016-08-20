@@ -8,7 +8,6 @@ import org.hibernate.criterion.Restrictions;
 import ua.com.alfacell.dao.BaseDao;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.models.Shop;
-import ua.com.alfacell.models.User;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class ShopDaoImpl extends BaseDao implements CrudDao<Shop> {
     @Override
     public List<Shop> findAll() {
         Session session = getActiveSession();
-        List<Shop> shops = session.createCriteria(User.class).list();
+        List<Shop> shops = session.createCriteria(Shop.class).list();
         return shops;
     }
 
