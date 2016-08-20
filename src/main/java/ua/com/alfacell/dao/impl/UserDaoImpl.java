@@ -1,7 +1,9 @@
-package ua.com.alfacell.dao;
+package ua.com.alfacell.dao.impl;
 
 // Created by Ponomarenko Oleh on 20.08.2016.
 
+import ua.com.alfacell.dao.BaseDao;
+import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.models.User;
 
 import java.util.List;

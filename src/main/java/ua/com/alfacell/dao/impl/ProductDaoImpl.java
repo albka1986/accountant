@@ -1,8 +1,10 @@
-package ua.com.alfacell.dao;
+package ua.com.alfacell.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import ua.com.alfacell.dao.BaseDao;
+import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.models.Product;
 
 import java.util.List;
