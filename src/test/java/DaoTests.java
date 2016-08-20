@@ -1,17 +1,24 @@
 // Created by Ponomarenko Oleh on 20.08.2016.
 
+import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.ProductDaoImpl;
+import ua.com.alfacell.dao.impl.UserDaoImpl;
 import ua.com.alfacell.models.Product;
+import ua.com.alfacell.models.User;
 
 import java.util.List;
 
 public class DaoTests {
-    CrudDao<Product> productDao = new ProductDaoImpl();
+
 
     //ProductDaoImpl
+    CrudDao<Product> productDao = new ProductDaoImpl();
+    //UserDaoImpl
+    CrudDao<User> userDao = new UserDaoImpl();
+
     @Test
     public void testFindProductById() {
         Product product = productDao.findById(1);
@@ -69,5 +76,57 @@ public class DaoTests {
         System.out.println(productDao.findAll());
     }
 
+    @Test
+    public void testFindUserById() {
+        User user = userDao.findById(1);
+        System.out.println(user);
+    }
 
+    @Test
+    public void testFindAllUsers() {
+        List<User> users = userDao.findAll();
+        System.out.println(users);
+    }
+
+    @Test
+    public void testSaveUser() {
+        User user = new User();
+        user.setLogin("Login2");
+        user.setPassword("password2");
+        user.setAddress("Any address");
+        user.setPhone("0631441234");
+        user.setEmail("alba@ma.ru");
+        userDao.save(user);
+        System.out.println(userDao.findAll());
+    }
+
+    @Test
+    public void testUpdateUser() {
+        User user = new User();
+        user.setId(2);
+        user.setFirstName("UpdatedUser");
+
+        System.out.println("");
+        System.out.println("Before");
+        System.out.println(userDao.findAll());
+        userDao.update(user);
+        System.out.println("");
+        System.out.println("After");
+        System.out.println(userDao.findAll());
+    }
+
+    @Test
+    public void testDeleteUser() {
+        User user = new User();
+        user.setId(3);
+
+        System.out.println("");
+        System.out.println("Before");
+        System.out.println("Amount of users: " + userDao.findAll().size());
+        userDao.delete(user);
+        System.out.println("");
+        System.out.println("After");
+        System.out.println("Amount of users: " + userDao.findAll().size());
+
+    }
 }
