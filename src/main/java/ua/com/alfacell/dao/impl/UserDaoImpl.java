@@ -56,7 +56,7 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
 
         try {
             tx = session.beginTransaction();
-            session.save(user);
+            session.update(user);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();
