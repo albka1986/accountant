@@ -110,4 +110,20 @@ public class User {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+    @Override
+    public String toString() {
+        return "User:" +
+                "\nid=" + id +
+                ",\nfirstName='" + firstName + '\'' +
+                ",\nlastName='" + lastName + '\'' +
+                ",\nlogin='" + login + '\'' +
+                ",\npassword='" + password + '\'' +
+                ",\naddress='" + address + '\'' +
+                ",\nemail='" + email + '\'' +
+                ",\nrole=" + role +
+                ",\nphone='" + phone + '\'' +
+                ",\nshop=" + shop +
+                "\n";
+    }
 }
