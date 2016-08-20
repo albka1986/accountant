@@ -16,6 +16,10 @@ public class Product {
     private String brand;
     @Column
     private String imei;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 
     public int getId() {
         return id;
@@ -55,6 +59,14 @@ public class Product {
 
     public void setImei(String imei) {
         this.imei = imei;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
