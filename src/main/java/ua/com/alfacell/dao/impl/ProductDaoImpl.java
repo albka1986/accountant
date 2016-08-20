@@ -63,6 +63,7 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
     @Override
     public void delete(Product product) {
         Session session = getActiveSession();
+
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -74,8 +75,5 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
         } finally {
             session.close();
         }
-
-
-
     }
 }
