@@ -27,4 +27,12 @@ public class Shop {
     public void setNameShop(String nameShop) {
         this.nameShop = nameShop;
     }
+
+    @Override
+    public String toString() {
+        return "\nShop{" +
+                "\nid=" + id +
+                "\n, nameShop='" + nameShop + '\'' +
+                "\n}";
+    }
 }
