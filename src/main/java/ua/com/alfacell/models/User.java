@@ -113,7 +113,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User:" +
+        return "\nUser:" +
                 "\nid=" + id +
                 ",\nfirstName='" + firstName + '\'' +
                 ",\nlastName='" + lastName + '\'' +
