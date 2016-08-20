@@ -21,6 +21,7 @@
         <mapping class="ua.com.alfacell.models.Shop"/>
         <mapping class="ua.com.alfacell.models.Storage"/>
         <mapping class="ua.com.alfacell.models.Role"/>
+        <mapping class="ua.com.alfacell.models.Category"/>
 
     </session-factory>
 </hibernate-configuration>
