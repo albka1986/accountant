@@ -3,7 +3,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
-import ua.com.alfacell.dao.ProductDaoImpl;
+import ua.com.alfacell.dao.impl.ProductDaoImpl;
 import ua.com.alfacell.models.Product;
 
 import java.util.List;
@@ -15,7 +15,6 @@ public class DaoTests {
     @Test
     public void testFindProductById() {
         Product product = productDao.findById(1);
-        Assert.assertNotNull(product);
         System.out.println(product);
     }
 
@@ -41,7 +40,7 @@ public class DaoTests {
     @Test
     public void testUpdateProduct() {
         Product updateProduct = new Product();
-        updateProduct.setId(3);
+        updateProduct.setId(1);
         updateProduct.setNameProduct("y5c");
         updateProduct.setBrand("LG");
         updateProduct.setImei("123123123123");
@@ -54,8 +53,20 @@ public class DaoTests {
 
         System.out.println("After");
         System.out.println(productDao.findAll());
+    }
 
+    @Test
+    public void testDeleteProduct() {
+        Product product = new Product();
+        product.setId(1);
 
+        System.out.println("Before");
+        System.out.println(productDao.findAll());
+
+        productDao.delete(product);
+
+        System.out.println("After");
+        System.out.println(productDao.findAll());
     }
 
 
