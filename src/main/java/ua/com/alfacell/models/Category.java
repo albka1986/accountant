@@ -30,8 +30,8 @@ public class Category {
 
     @Override
     public String toString() {
-        return "\nCategory{" +
+        return "\nCategory:" +
                 "\nid=" + id +
-                "\n, nameCategory='" + nameCategory + "\n";
+                ", \nnameCategory = " + nameCategory + "\n";
     }
 }
