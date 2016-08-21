@@ -30,9 +30,8 @@ public class Shop {
 
     @Override
     public String toString() {
-        return "\nShop{" +
+        return "\nShop:" +
                 "\nid=" + id +
-                "\n, nameShop='" + nameShop + '\'' +
-                "\n}";
+                "\nnameShop='" + nameShop + "\n";
     }
 }
