@@ -27,4 +27,11 @@ public class Category {
     public void setNameCategory(String nameCategory) {
         this.nameCategory = nameCategory;
     }
+
+    @Override
+    public String toString() {
+        return "\nCategory{" +
+                "\nid=" + id +
+                "\n, nameCategory='" + nameCategory + "\n";
+    }
 }
