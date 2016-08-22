@@ -1,12 +1,13 @@
 // Created by Ponomarenko Oleh on 20.08.2016.
 
-import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
+import ua.com.alfacell.dao.impl.CategoryDaoImpl;
 import ua.com.alfacell.dao.impl.ProductDaoImpl;
 import ua.com.alfacell.dao.impl.ShopDaoImpl;
 import ua.com.alfacell.dao.impl.UserDaoImpl;
+import ua.com.alfacell.models.Category;
 import ua.com.alfacell.models.Product;
 import ua.com.alfacell.models.Shop;
 import ua.com.alfacell.models.User;
@@ -21,6 +22,8 @@ public class DaoTests {
     CrudDao<User> userDao = new UserDaoImpl();
     //ShopDaoImpl
     CrudDao<Shop> shopDao = new ShopDaoImpl();
+    //CategoryDaoImpl
+    CrudDao<Category> categoryDao = new CategoryDaoImpl();
 
     @Test
     public void testFindProductById() {
@@ -173,4 +176,76 @@ public class DaoTests {
         System.out.println("After");
         System.out.println("Amount of shops: " + shopDao.findAll().size());
     }
+
+    @Test
+    public void testUpdateShop() {
+        Shop shop = new Shop();
+        shop.setId(3);
+        shop.setNameShop("Updated");
+
+        System.out.println("Before");
+        System.out.println(shopDao.findById(3));
+        shopDao.update(shop);
+        System.out.println("After");
+        System.out.println(shopDao.findById(3));
+    }
+
+    @Test
+    public void testDeleteShop() {
+        Shop shop = new Shop();
+        shop.setId(1);
+
+        System.out.println("Amount of Shop (BEFORE): " + shopDao.findAll().size());
+        shopDao.delete(shop);
+        System.out.println("Amount of Shop (AFTER): " + shopDao.findAll().size());
+    }
+
+    @Test
+    public void testFindCategoryById() {
+        Category category = categoryDao.findById(1);
+        System.out.println(category);
+    }
+
+    @Test
+    public void testFindAllCategories() {
+        List<Category> categories = categoryDao.findAll();
+        System.out.println(categories);
+    }
+
+    @Test
+    public void testSaveCategory() {
+        Category category = new Category();
+        category.setNameCategory("Чехлы");
+
+        System.out.println("");
+        System.out.println("Before");
+        System.out.println("Amount of category: " + categoryDao.findAll().size());
+        categoryDao.save(category);
+        System.out.println("");
+        System.out.println("After");
+        System.out.println("Amount of category: " + categoryDao.findAll().size());
+    }
+
+    @Test
+    public void testUpdateCategory() {
+        Category category = new Category();
+        category.setId(1);
+        category.setNameCategory("Updated");
+
+        System.out.println(categoryDao.findById(1));
+        categoryDao.update(category);
+        System.out.println(categoryDao.findById(1));
+    }
+
+    @Test
+    public void testDeleteCategory() {
+        Category category = new Category();
+        category.setId(1);
+
+        System.out.println("Amount of categories(before deleting): " + categoryDao.findAll().size());
+        categoryDao.delete(category);
+        System.out.println("Amount of categories(after deleting): " + categoryDao.findAll().size());
+    }
+
+
 }
