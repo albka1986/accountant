@@ -18,7 +18,6 @@ public class Storage {
     @Column
     private Integer amount;
 
-
     public Integer getId() {
         return id;
     }
@@ -49,5 +48,14 @@ public class Storage {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "\nStorage:" +
+                "\nid=" + id +
+                "\nshop=" + shop +
+                "\nproduct=" + product +
+                "\namount=" + amount;
     }
 }
