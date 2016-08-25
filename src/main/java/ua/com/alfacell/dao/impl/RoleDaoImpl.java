@@ -48,19 +48,7 @@ public class RoleDaoImpl extends BaseDao implements CrudDao<Role> {
 
     @Override
     public void update(Role updateRole) {
-        Session session = getActiveSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            session.update(updateRole);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
+        System.out.println("It should to override");
     }
 
     @Override
