@@ -3,14 +3,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
-import ua.com.alfacell.dao.impl.CategoryDaoImpl;
-import ua.com.alfacell.dao.impl.ProductDaoImpl;
-import ua.com.alfacell.dao.impl.ShopDaoImpl;
-import ua.com.alfacell.dao.impl.UserDaoImpl;
-import ua.com.alfacell.models.Category;
-import ua.com.alfacell.models.Product;
-import ua.com.alfacell.models.Shop;
-import ua.com.alfacell.models.User;
+import ua.com.alfacell.dao.impl.*;
+import ua.com.alfacell.models.*;
 
 import java.util.List;
 
@@ -24,6 +18,8 @@ public class DaoTests {
     CrudDao<Shop> shopDao = new ShopDaoImpl();
     //CategoryDaoImpl
     CrudDao<Category> categoryDao = new CategoryDaoImpl();
+    //StorageDaoImpl
+    CrudDao<Storage> storageDao = new StorageDaoImpl();
 
     @Test
     public void testFindProductById() {
@@ -240,12 +236,47 @@ public class DaoTests {
     @Test
     public void testDeleteCategory() {
         Category category = new Category();
-        category.setId(1);
+        category.setId(0);
 
         System.out.println("Amount of categories(before deleting): " + categoryDao.findAll().size());
         categoryDao.delete(category);
         System.out.println("Amount of categories(after deleting): " + categoryDao.findAll().size());
     }
+
+    @Test
+    public void testFindStorageById() {
+        Storage storage = storageDao.findById(1);
+        System.out.println(storage);
+    }
+
+    @Test
+    public void testFindAllStorages() {
+        List<Storage> storages = storageDao.findAll();
+        System.out.println(storages);
+    }
+
+    @Test
+    public void testSaveStorage() {
+        Storage storage = new Storage();
+        storageDao.save(storage);
+    }
+
+    @Test
+    public void testUpdateStorage() {
+        Storage storage = new Storage();
+        storage.setId(1);
+        storage.setAmount(10);
+        storageDao.update(storage);
+    }
+
+    @Test
+    public void testDelete() {
+        Storage storage = new Storage();
+        storage.setId(1);
+
+        storageDao.delete(storage);
+    }
+
 
 
 }
