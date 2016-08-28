@@ -1,4 +1,3 @@
-// Created by Ponomarenko Oleh on 20.08.2016.
 
 import org.junit.Assert;
 import org.junit.Test;
