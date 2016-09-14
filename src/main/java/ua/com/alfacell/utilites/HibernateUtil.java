@@ -1,8 +1,5 @@
 package ua.com.alfacell.utilites;
 
-// Created by Ponomarenko Oleh on 07.06.2016.
-
-import com.fasterxml.classmate.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 

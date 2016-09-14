@@ -19,8 +19,6 @@ public class DaoTests {
     CrudDao<Category> categoryDao = new CategoryDaoImpl();
     //StorageDaoImpl
     CrudDao<Storage> storageDao = new StorageDaoImpl();
-    //RoleDaoImpl
-    CrudDao<Role> roleDao = new RoleDaoImpl();
 
     @Test
     public void testFindProductById() {
@@ -101,6 +99,19 @@ public class DaoTests {
         user.setEmail("alba@ma.ru");
         userDao.save(user);
         System.out.println(userDao.findAll());
+    }
+
+    @Test
+    public void testSaveUser2(){
+        User user = new User();
+        user.setLastName("oleh");
+        user.setPassword("12345678");
+        user.setFirstName("Oleh");
+        user.setLastName("Ponomarenko");
+        user.setPhone("+380631110001");
+        user.setEmail("my@email.com");
+
+        userDao.save(user);
     }
 
     @Test
@@ -276,32 +287,6 @@ public class DaoTests {
         storage.setId(1);
 
         storageDao.delete(storage);
-    }
-
-    @Test
-    public void testFindById() {
-        Role role = roleDao.findById(1);
-        System.out.println(role);
-    }
-
-    @Test
-    public void testFindAllRoles() {
-        List<Role> roles = roleDao.findAll();
-        System.out.println(roles);
-    }
-
-    @Test
-    public void testSaveRole() {
-        Role role = new Role();
-        role.setRole("ADMIN");
-        roleDao.save(role);
-    }
-
-    @Test
-    public void testDeleteRole() {
-        Role role = new Role();
-        role.setRole("ADMIN");
-        roleDao.delete(role);
     }
 
 

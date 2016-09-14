@@ -1,5 +1,7 @@
 package ua.com.alfacell.dto;
 
+import ua.com.alfacell.models.Role;
+
 public class UserDto {
     private int id;
     private String firstName;
@@ -8,7 +10,7 @@ public class UserDto {
     private String password;
     private String address;
     private String email;
-    private RoleDto role;
+    private Role role;
     private String phone;
     private ShopDto shop;
 
@@ -68,11 +70,11 @@ public class UserDto {
         this.email = email;
     }
 
-    public RoleDto getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(RoleDto role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

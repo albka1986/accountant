@@ -22,9 +22,9 @@ public class User {
     private String address;
     @Column
     private String email;
-    @OneToOne
-    @JoinColumn(name = "role")
+    @Enumerated(EnumType.STRING)
     private Role role;
+
     @Column
     private String phone;
     @ManyToOne
