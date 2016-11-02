@@ -94,7 +94,6 @@ public class DaoTests {
         User user = new User();
         user.setLogin("Login2");
         user.setPassword("password2");
-        user.setAddress("Any address");
         user.setPhone("0631441234");
         user.setEmail("alba@ma.ru");
         userDao.save(user);

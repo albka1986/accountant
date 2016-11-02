@@ -10,18 +10,22 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column
     private String firstName;
+
     @Column
     private String lastName;
+
     @Column
     private String login;
+
     @Column
     private String password;
-    @Column
-    private String address;
-    @Column
+
+    @Column(unique = true, nullable = false)
     private String email;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -71,14 +75,6 @@ public class User {
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -119,7 +115,6 @@ public class User {
                 ",\nlastName='" + lastName + '\'' +
                 ",\nlogin='" + login + '\'' +
                 ",\npassword='" + password + '\'' +
-                ",\naddress='" + address + '\'' +
                 ",\nemail='" + email + '\'' +
                 ",\nrole=" + role +
                 ",\nphone='" + phone + '\'' +

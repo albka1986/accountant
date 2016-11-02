@@ -17,7 +17,6 @@ public class Transformer {
         userDto.setPassword(user.getPassword());
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
-        userDto.setAddress(user.getAddress());
         userDto.setEmail(user.getEmail());
         userDto.setPhone(user.getPhone());
         userDto.setRole(user.getRole());
@@ -33,7 +32,6 @@ public class Transformer {
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setEmail(userDto.getEmail());
-        user.setAddress(userDto.getAddress());
         user.setPhone(userDto.getPhone());
         user.setRole(userDto.getRole());
         user.setShop(Transformer.shopDtoToShop(userDto.getShop()));

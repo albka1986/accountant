@@ -6,12 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.omg.CORBA.Request;
+import org.springframework.stereotype.Repository;
 import ua.com.alfacell.dao.BaseDao;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.models.Role;
 import ua.com.alfacell.models.User;
 
 import java.util.List;
+
 
 public class UserDaoImpl extends BaseDao implements CrudDao<User> {
 
