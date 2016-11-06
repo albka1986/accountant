@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/login")
 public class ServletAuthentication extends HttpServlet {
@@ -28,10 +29,10 @@ public class ServletAuthentication extends HttpServlet {
             HttpSession httpSession = req.getSession();
             httpSession.setAttribute("user", user);
 
-           resp.sendRedirect("/home");
+            resp.sendRedirect("/home");
 
-        }else {
-           resp.sendRedirect("/login");
+        } else {
+            resp.sendRedirect("/login");
 
         }
 
@@ -40,5 +41,9 @@ public class ServletAuthentication extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/login.jsp");
         rd.forward(req, resp);
+     /*   PrintWriter out = resp.getWriter();
+        out.println("<font color=\"red\">Username or Password incorrect</font>");
+        RequestDispatcher rs = req.getRequestDispatcher("/login.jsp");
+        rs.include(req, resp);*/
     }
 }

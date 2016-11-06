@@ -19,13 +19,19 @@
 </head>
 
 <body>
-
+<div align="right">
+    <form action="/ServletLogout">
+        <h4> user: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
+            <input type="submit" value="logout" width="20%" height="20%"></h4>
+    </form>
+</div>
 <div ng-controller="mainController">
     <p align="center">
         <img src="../resources/alfacell_logo.png" alt="ALFACELL"></p>
 
     <div align="center">
-        <h2>Магазин #${shopId}</h2></div>
+        <h2>Магазин #1</h2></div>
+
 
     <div class="container">
         <div class="row">
@@ -68,17 +74,18 @@
                 <th>brand&#9660;</th>
                 <th>model&#9660;</th>
                 <th>amount&#9660;</th>
+                <th># магазина&#9660;</th>
 
             </tr>
             </thead>
             <tbody>
-
-            <c:forEach items="${storageListStorage+shopId}" var="storage">
+            <c:forEach items="${storageListStorage2}" var="storage">
                 <tr>
-                    <td><c:out value="${storage.product.category.nameCategory}"> </c:out></td>
-                    <td><c:out value="${storage.product.brand}"> </c:out></td>
-                    <td><c:out value="${storage.product.nameProduct}"> </c:out></td>
+                    <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
+                    <td><c:out value="${storage.productDto.brand}"> </c:out></td>
+                    <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
                     <td><c:out value="${storage.amount}"> </c:out></td>
+                    <td><c:out value="${storage.shopDto.id}"> </c:out></td>
                 </tr>
             </c:forEach>
             </tbody>

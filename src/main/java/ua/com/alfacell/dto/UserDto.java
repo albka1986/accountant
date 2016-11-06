@@ -8,11 +8,10 @@ public class UserDto {
     private String lastName;
     private String login;
     private String password;
-    private String address;
     private String email;
     private Role role;
     private String phone;
-    private ShopDto shop;
+    private ShopDto shopDto;
 
     public int getId() {
         return id;
@@ -54,13 +53,6 @@ public class UserDto {
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getEmail() {
         return email;
@@ -86,11 +78,11 @@ public class UserDto {
         this.phone = phone;
     }
 
-    public ShopDto getShop() {
-        return shop;
+    public ShopDto getShopDto() {
+        return shopDto;
     }
 
-    public void setShop(ShopDto shop) {
-        this.shop = shop;
+    public void setShopDto(ShopDto shopDto) {
+        this.shopDto = shopDto;
     }
 }

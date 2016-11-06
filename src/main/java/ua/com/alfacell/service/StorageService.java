@@ -3,8 +3,11 @@ package ua.com.alfacell.service;
 // Created by Ponomarenko Oleh on 05.11.2016.
 
 import ua.com.alfacell.dao.impl.StorageDaoImpl;
+import ua.com.alfacell.dto.StorageDto;
 import ua.com.alfacell.models.Storage;
+import ua.com.alfacell.utilites.Transformer;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class StorageService implements CrudService<Storage> {
@@ -18,15 +21,17 @@ public class StorageService implements CrudService<Storage> {
         return null;
     }
 
-    public List<Storage> findAllProductsByShopId(int shopId) {
-        StorageDaoImpl storageDao = new StorageDaoImpl();
-        List<Storage> storageList = storageDao.findAll();
-        for (int i = 0; i < storageList.size(); i++) {
-            if (storageList.get(i).getShop().getId() != shopId) {
-                storageList.remove(i);
+    public List<StorageDto> findProductsByShopId(int shopId) {
+        List<Storage> temp = new StorageDaoImpl().findAll();
+        List<Storage> storageList = new LinkedList<>();
+        for (int i = 0; i < temp.size(); i++) {
+            if (temp.get(i).getShop().getId() == shopId) {
+                storageList.add(temp.get(i));
             }
         }
-        return storageList;
+        List<StorageDto> storageDtos = Transformer.listStorageToListStorageDto(storageList);
+        return storageDtos;
+
     }
 
     @Override

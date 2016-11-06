@@ -19,4 +19,12 @@ public class ShopDto {
     public void setNameShop(String nameShop) {
         this.nameShop = nameShop;
     }
+
+    @Override
+    public String toString() {
+        return "ShopDto{" +
+                "id=" + id +
+                ", nameShop='" + nameShop + '\'' +
+                '}';
+    }
 }

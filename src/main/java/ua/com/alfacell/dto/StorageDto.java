@@ -2,8 +2,8 @@ package ua.com.alfacell.dto;
 
 public class StorageDto {
     private Integer id;
-    private ShopDto shop;
-    private ProductDto product;
+    private ShopDto shopDto;
+    private ProductDto productDto;
     private Integer amount;
 
     public Integer getId() {
@@ -14,20 +14,20 @@ public class StorageDto {
         this.id = id;
     }
 
-    public ShopDto getShop() {
-        return shop;
+    public ShopDto getShopDto() {
+        return shopDto;
     }
 
-    public void setShop(ShopDto shop) {
-        this.shop = shop;
+    public void setShopDto(ShopDto shopDto) {
+        this.shopDto = shopDto;
     }
 
-    public ProductDto getProduct() {
-        return product;
+    public ProductDto getProductDto() {
+        return productDto;
     }
 
-    public void setProduct(ProductDto product) {
-        this.product = product;
+    public void setProductDto(ProductDto productDto) {
+        this.productDto = productDto;
     }
 
     public Integer getAmount() {
@@ -36,5 +36,15 @@ public class StorageDto {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "StorageDto{" +
+                "id=" + id +
+                ", shopDto=" + shopDto +
+                ", productDto=" + productDto +
+                ", amount=" + amount +
+                '}';
     }
 }

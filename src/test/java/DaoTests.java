@@ -257,13 +257,15 @@ public class DaoTests {
     @Test
     public void testFindStorageById() {
         Storage storage = storageDao.findById(1);
+        Assert.assertNotNull(storage);
         System.out.println(storage);
     }
 
     @Test
-    public void testFindAllStorages() {
-        List<Storage> storages = storageDao.findAll();
-        System.out.println(storages);
+    public void testFindAllStorage() {
+        List<Storage> storageList = storageDao.findAll();
+        System.out.println(storageList);
+        System.out.println(storageList.size());
     }
 
     @Test
