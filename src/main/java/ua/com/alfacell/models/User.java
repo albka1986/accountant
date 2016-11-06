@@ -17,7 +17,7 @@ public class User {
     @Column
     private String lastName;
 
-    @Column
+    @Column(unique = true, nullable = false)
     private String login;
 
     @Column

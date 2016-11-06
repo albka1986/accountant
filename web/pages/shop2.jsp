@@ -25,8 +25,7 @@
         <img src="../resources/alfacell_logo.png" alt="ALFACELL"></p>
 
     <div align="center">
-        <h2>Магазин #1</h2></div>
-
+        <h2>Магазин #${shopId}</h2></div>
 
     <div class="container">
         <div class="row">
@@ -73,7 +72,8 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${storageListStorage1}" var="storage">
+
+            <c:forEach items="${storageListStorage+shopId}" var="storage">
                 <tr>
                     <td><c:out value="${storage.product.category.nameCategory}"> </c:out></td>
                     <td><c:out value="${storage.product.brand}"> </c:out></td>

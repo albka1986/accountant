@@ -5,8 +5,6 @@ package ua.com.alfacell.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.omg.CORBA.Request;
-import org.springframework.stereotype.Repository;
 import ua.com.alfacell.dao.BaseDao;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.models.Role;
@@ -85,5 +83,31 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
         } finally {
             session.close();
         }
+    }
+
+    public boolean checkAuthentication(String login, String password) {
+        boolean result = false;
+        Session session = getActiveSession();
+        User user = (User) session.createCriteria(User.class)
+                .add(Restrictions.eq("login", login))
+                .add(Restrictions.eq("password", password))
+                .uniqueResult();
+        if (user != null) {
+            System.out.println(user);
+            result = true;
+        }
+
+        return result;
+    }
+
+    public User findByLoginPassword(String login, String password) {
+        User user;
+        Session session = getActiveSession();
+        user = (User) session.createCriteria(User.class)
+                .add(Restrictions.eq("login", login))
+                .add(Restrictions.eq("password", password))
+                .uniqueResult();
+        System.out.println(user);
+        return user;
     }
 }

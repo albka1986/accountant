@@ -27,7 +27,6 @@
     <div align="center">
         <h2>Магазин #1</h2></div>
 
-
     <div class="container">
         <div class="row">
 

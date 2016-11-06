@@ -101,7 +101,7 @@ public class DaoTests {
     }
 
     @Test
-    public void testSaveUser2(){
+    public void testSaveUser2() {
         User user = new User();
         user.setLastName("oleh");
         user.setPassword("12345678");
@@ -288,5 +288,11 @@ public class DaoTests {
         storageDao.delete(storage);
     }
 
+    @Test
+    public void testFindUserLoginPassword() {
+        UserDaoImpl userDao = new UserDaoImpl();
+        User user = userDao.findByLoginPassword("user1", "password");
+        System.out.println(user);
+    }
 
 }
