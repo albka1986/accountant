@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -21,16 +22,20 @@
 
 </head>
 
+
 <body>
-
-<div ng-controller="mainCommonController">
-    <p align="right">
-        <img src="../resources/alfacell_logo.png" width="15%" height="15%"></p>
-    <p align="right">
-        <h1>
+<div align="right">
+    <form action="/ServletLogout">
+        <h4> user: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
+            <input type="submit" value="logout" width="20%" height="20%"></h4>
+    </form>
+</div>
+<div ng-controller="mainController">
     <p align="center">
-        Складкской учет ALFACELL</p></h1>
+        <img src="../resources/alfacell_logo.png" alt="ALFACELL"></p>
 
+    <div align="center">
+        <h2>Все магазины</h2></div>
 
     <div class="container">
         <div class="row">
@@ -48,13 +53,13 @@
                     </div>
                     <div class="collapse navbar-collapse" id="responsive-menu">
                         <ul class="nav navbar-nav">
-                            <li><a href="#1">Все магазины</a></li>
-                            <li><a href="#">Магазин №1</a></li>
-                            <li><a href="#">Магазин №2</a></li>
-                            <li><a href="#">Магазин №3</a></li>
-                            <li><a href="#">Магазин №4</a></li>
-                            <li><a href="#">Магазин №5</a></li>
-                            <li><a href="#">Магазин №6</a></li>
+                            <li><a href="/allShops">Все магазины</a></li>
+                            <li><a href="/shop1">Магазин №1</a></li>
+                            <li><a href="/shop2">Магазин №2</a></li>
+                            <li><a href="/shop3">Магазин №3</a></li>
+                            <li><a href="/shop4">Магазин №4</a></li>
+                            <li><a href="/shop5">Магазин №5</a></li>
+                            <li><a href="/shop6">Магазин №6</a></li>
                         </ul>
                     </div>
                 </div>
@@ -88,14 +93,13 @@
                 <td>1</td>
                 <td>phone</td>
                 <td>hkk</td>
-                <td>jjj</td>
                 <td>12</td>
-                <td>5</td>
-                <td>59</td>
-                <td>6</td>
+                <td>4</td>
+                <td>4</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
                 <td>0</td>
-                <td>5</td>
-                <td>7</td>
 
             </tr>
             <tbody>
