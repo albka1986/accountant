@@ -303,7 +303,7 @@ public class DaoTests {
 
     @Test
     public void testAmountOfProductAllShops(){
-        SessionFactory session = HibernateUtil.getSessionFactory();
+/*        SessionFactory session = HibernateUtil.getSessionFactory();
         session.getCurrentSession();
         String sql = "SELECT product_id, sum(amount) FROM storage GROUP BY product_id";
         SQLQuery query = session.createSQLQuery(sql);
@@ -311,7 +311,7 @@ public class DaoTests {
         System.out.println(query.getNamedParameters().toString());
 //        List<Storage> storageList = query.list();
 
-        session.close();
+        session.close();*/
     }
 
 }
