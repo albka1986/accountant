@@ -30,8 +30,7 @@
         <img src="../resources/alfacell_logo.png" alt="ALFACELL"></p>
 
     <div align="center">
-        <h2>Магазин #1</h2></div>
-
+        <h2>Магазин # ${shopId}</h2></div>
 
     <div class="container">
         <div class="row">
@@ -70,22 +69,20 @@
         <table class="table_blur tablesorter" id="myTable">
             <thead>
             <tr>
-                <th>category&#9660;</th>
-                <th>brand&#9660;</th>
-                <th>model&#9660;</th>
-                <th>amount&#9660;</th>
-                <th># магазина&#9660;</th>
-
+                <th>Категория &#9660;</th>
+                <th>Производитель &#9660;</th>
+                <th>Модель &#9660;</th>
+                <th>Количество &#9660;</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${storageListStorage1}" var="storage">
+
+            <c:forEach items="${storageList1}" var="storage">
                 <tr>
                     <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
                     <td><c:out value="${storage.productDto.brand}"> </c:out></td>
                     <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
                     <td><c:out value="${storage.amount}"> </c:out></td>
-                    <td><c:out value="${storage.shopDto.id}"> </c:out></td>
                 </tr>
             </c:forEach>
             </tbody>

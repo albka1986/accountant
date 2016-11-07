@@ -1,9 +1,13 @@
 
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.*;
 import ua.com.alfacell.models.*;
+import ua.com.alfacell.utilites.HibernateUtil;
 
 import java.util.List;
 
@@ -295,6 +299,19 @@ public class DaoTests {
         UserDaoImpl userDao = new UserDaoImpl();
         User user = userDao.findByLoginPassword("user1", "password");
         System.out.println(user);
+    }
+
+    @Test
+    public void testAmountOfProductAllShops(){
+        SessionFactory session = HibernateUtil.getSessionFactory();
+        session.getCurrentSession();
+        String sql = "SELECT product_id, sum(amount) FROM storage GROUP BY product_id";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Storage.class);
+        System.out.println(query.getNamedParameters().toString());
+//        List<Storage> storageList = query.list();
+
+        session.close();
     }
 
 }

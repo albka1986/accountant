@@ -2,6 +2,7 @@ package ua.com.alfacell.dao.impl;
 
 // Created by Ponomarenko Oleh on 22.08.2016.
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -79,5 +80,17 @@ public class StorageDaoImpl extends BaseDao implements CrudDao<Storage> {
         } finally {
             session.close();
         }
+    }
+
+    public List<Storage> amountOfProductAllShops() {
+        Session session = getActiveSession();
+        String sql = "SELECT product_id, sum(amount) FROM storage GROUP BY product_id";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Storage.class);
+        System.out.println(query.getNamedParameters().toString());
+//        List<Storage> storageList = query.list();
+
+        session.close();
+        return null;
     }
 }
