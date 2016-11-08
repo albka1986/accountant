@@ -7,6 +7,7 @@ import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.*;
 import ua.com.alfacell.models.*;
+import ua.com.alfacell.service.StorageService;
 import ua.com.alfacell.utilites.HibernateUtil;
 
 import java.util.List;
@@ -303,15 +304,11 @@ public class DaoTests {
 
     @Test
     public void testAmountOfProductAllShops(){
-/*        SessionFactory session = HibernateUtil.getSessionFactory();
-        session.getCurrentSession();
-        String sql = "SELECT product_id, sum(amount) FROM storage GROUP BY product_id";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Storage.class);
-        System.out.println(query.getNamedParameters().toString());
-//        List<Storage> storageList = query.list();
-
-        session.close();*/
+      /*  List<Storage> storageList = new StorageDaoImpl().amountOfProductAllShops();
+        Assert.assertNotNull(storageList);
+        for (Storage storage : storageList) {
+            System.out.println(storage);
+        }*/
     }
 
 }

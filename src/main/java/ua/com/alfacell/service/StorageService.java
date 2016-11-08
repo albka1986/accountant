@@ -9,6 +9,7 @@ import ua.com.alfacell.models.Shop;
 import ua.com.alfacell.models.Storage;
 import ua.com.alfacell.utilites.Transformer;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,7 +46,6 @@ public class StorageService implements CrudService<StorageDto> {
     }
 
 
-
     @Override
     public void save(StorageDto storage) {
 
@@ -60,4 +60,16 @@ public class StorageService implements CrudService<StorageDto> {
     public void delete(StorageDto storage) {
 
     }
+
+    public Storage allShops() {
+        List<Storage> allStorageList = new StorageDaoImpl().findAll();
+        List<Storage> storageList = new LinkedList<>();
+        for (Storage storage : allStorageList) {
+
+        }
+
+
+        return null;
+    }
+
 }

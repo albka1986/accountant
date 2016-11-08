@@ -48,4 +48,5 @@ public class ServiceTests {
         System.out.println("List of Products in a Shop #6");
         storageDtoList.forEach(System.out::println);
     }
+
 }
