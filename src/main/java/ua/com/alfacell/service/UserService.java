@@ -1,7 +1,5 @@
 package ua.com.alfacell.service;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ua.com.alfacell.dao.impl.UserDaoImpl;
 import ua.com.alfacell.dto.UserDto;
 import ua.com.alfacell.models.User;

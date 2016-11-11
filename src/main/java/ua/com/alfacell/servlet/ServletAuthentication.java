@@ -18,9 +18,7 @@ public class ServletAuthentication extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String login = req.getParameter("login");
-        System.out.println(login);
         String password = req.getParameter("password");
-        System.out.println(password);
         User user = new User();
         user.setLogin(login);
         user.setPassword(password);
@@ -28,22 +26,15 @@ public class ServletAuthentication extends HttpServlet {
             user = new UserDaoImpl().findByLoginPassword(login, password);
             HttpSession httpSession = req.getSession();
             httpSession.setAttribute("user", user);
-
             resp.sendRedirect("/home");
 
         } else {
             resp.sendRedirect("/login");
-
         }
-
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/login.jsp");
         rd.forward(req, resp);
-     /*   PrintWriter out = resp.getWriter();
-        out.println("<font color=\"red\">Username or Password incorrect</font>");
-        RequestDispatcher rs = req.getRequestDispatcher("/login.jsp");
-        rs.include(req, resp);*/
     }
 }

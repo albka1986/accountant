@@ -93,7 +93,6 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
                 .add(Restrictions.eq("password", password))
                 .uniqueResult();
         if (user != null) {
-            System.out.println(user);
             result = true;
         }
 
@@ -101,13 +100,27 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
     }
 
     public User findByLoginPassword(String login, String password) {
-        User user;
+        User user = null;
         Session session = getActiveSession();
-        user = (User) session.createCriteria(User.class)
+        User temp = (User) session.createCriteria(User.class)
                 .add(Restrictions.eq("login", login))
                 .add(Restrictions.eq("password", password))
                 .uniqueResult();
-        System.out.println(user);
+        if (temp != null) {
+            if (temp.getLogin().equals(login) && temp.getPassword().equals(password)) {
+                user = temp;
+            }
+        }
         return user;
+    }
+
+    public void createAdmin() {
+        User user = new User();
+        user.setLogin("admin");
+        user.setLogin("admin");
+        User temp = findByLoginPassword(user.getLogin(), user.getPassword());
+        if (temp == null) {
+            save(user);
+        }
     }
 }

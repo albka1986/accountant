@@ -14,6 +14,6 @@ public class ServletDispatcher extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-response.sendRedirect("/home");
+        response.sendRedirect("/pages/test.jsp");
     }
 }
