@@ -10,8 +10,8 @@
     <title>Accountant for Alfacell</title>
     <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
 
-
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="../libs/Bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -21,33 +21,69 @@
     <script src="../js/script.js"></script>
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
-    <link href="../css/navigation-bar.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../js/navigation-bar.js"></script>
-
     <script type="text/javascript">
         function logout() {
             location.href = '/ServletLogout'
         }
     </script>
 
-
 </head>
-
 <body>
 
-<ul class="topnav" id="myTopnav">
-    <li><a class="active" href="/home">Склад</a></li>
+<%--<ul class="topnav" id="myTopnav">
+    <li><a href="/home">Склад</a></li>
+    <ul>
+        <li><a href="#">Магазин №1 </a></li>
+        <li><a href="#">Магазин №2 </a></li>
+        <li><a href="#">Магазин №3 </a></li>
+        <li><a href="#">Магазин №4 </a></li>
+        <li><a href="#">Магазин №5 </a></li>
+        <li><a href="#">Магазин №6 </a></li>
+        <li><a href="#">Все магазины </a></li>
+    </ul>
     <li><a href="#">Управление складом</a></li>
-    <li><a href="#">Приход / Расход</a></li>
+    <li><a href="#">Приход</a></li>
+    <li><a href="#">Расход</a></li>
+    <li><a href="#">Отчет</a></li>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"></span>  <img src="../resources/user.svg" height="24" width="24"/> </a></li>
+        </li>
+        <li><a href="/ServletLogout"></span>  <img src="../resources/logout.svg" height="24" width="24"> </a></li>
+        </li>
+    </ul>
 
-    <li class="nav navbar-nav navbar-right">
-        <li><a href="/ServletLogout"></span>  Выход </a></li>
-    </li>
 
     <li class="icon">
         <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
     </li>
-</ul>
+</ul>--%>
+
+
+<div id="menu">
+    <ul>
+        <li><a href="/shop${shopId}">Магазин №${shopId}</a>
+            <ul>
+                <li><a href="/allShops">Все магазины </a></li>
+                <li><a href="/shop1">Магазин №1 </a></li>
+                <li><a href="/shop2">Магазин №2 </a></li>
+                <li><a href="/shop3">Магазин №3 </a></li>
+                <li><a href="/shop4">Магазин №4 </a></li>
+                <li><a href="/shop5">Магазин №5 </a></li>
+                <li><a href="/shop6">Магазин №6 </a></li>
+            </ul>
+        </li>
+        <li><a href="#">Приход</a></li>
+        <li><a href="#">Расход</a></li>
+        <li><a href="#">Управление складом</a></li>
+        <li><a href="#">Отчет</a></li>
+        <li><a href="#"></span><img src="../resources/user.svg" height="" width="24"/></a></li>
+        <li><a href="/ServletLogout"><img src="../resources/logout.svg" height="24px"> </a></li>
+    </ul>
+
+
+</div>
+
 <h4 align="right">Пользователь: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
 
 
@@ -58,47 +94,19 @@
         <div align="center">
             <h2>Магазин # ${shopId}</h2></div>
 
-        <div class="container">
-            <div class="row">
-                <div class="navbar navbar-default ">
-                    <div class="container ">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                    data-target="#responsive-menu">
-                                <span class="sr-only">Открыть навигацию</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="responsive-menu">
-                            <ul class="nav navbar-nav">
-                                <li><a href="/allShops">Все магазины</a></li>
-                                <li><a href="/shop1">Магазин №1</a></li>
-                                <li><a href="/shop2">Магазин №2</a></li>
-                                <li><a href="/shop3">Магазин №3</a></li>
-                                <li><a href="/shop4">Магазин №4</a></li>
-                                <li><a href="/shop5">Магазин №5</a></li>
-                                <li><a href="/shop6">Магазин №6</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div align="middle">
             <p>
                 <span><img src="../resources/filter.png" height="42" width="42"></span>
-                <input type="text" class="filter" name="liveFilter"/>
+                <input type="text" class="filter" name="liveFilter" placeholder="поиск по магазину"/>
             </p>
             <table class="table_blur tablesorter" id="myTable">
                 <thead>
                 <tr>
-                    <th>Категория &#9660;</th>
-                    <th>Производитель &#9660;</th>
-                    <th>Модель &#9660;</th>
-                    <th>Количество &#9660;</th>
+                    <th>Категория</th>
+                    <th>Производитель</th>
+                    <th>Модель</th>
+                    <th>Количество</th>
                 </tr>
                 </thead>
                 <tbody>
