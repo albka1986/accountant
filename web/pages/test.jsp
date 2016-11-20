@@ -1,41 +1,97 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="../css/style.css"  rel="stylesheet" type="text/css">
-</head>
 
+</head>
 <body>
 
-<div id="menu">
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
 
-    <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Видеоуроки</a>
-            <ul>
-                <li><a href="#">PHP</a></li>
-                <li><a href="#">jQuery</a></li>
-                <li><a href="#">WordPress</a></li>
-                <li><a href="#">Joomla</a></li>
-            </ul>
-        </li>
-        <li> <a href="#">Статьи</a>
-            <ul>
-                <li> <a href="#">HTML</a></li>
-                <li> <a href="#">CSS</a></li>
-                <li> <a href="#">jQuery</a>
-                    <ul>
-                        <li> <a href="#">Селекторы</a></li>
-                        <li> <a href="#">События</a></li>
-                        <li> <a href="#">AJAX</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li> <a href="#">Контакты</a></li>
-    </ul>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: white;
+            color: #000;
+        }
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: black;
+            color: #fafafa;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropbtn">Dropdown</a>
+        <div class="dropdown-content">
+            <a href="/allShops">Все магазины</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин 1</a>
+            <a href="/shop1">Магазин Александр</a>
+
+        </div>
+    </li>
+</ul>
 
 
-</div>
-<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+</body>
+</html>
+
+
+
+
+
 </body>
 </html>

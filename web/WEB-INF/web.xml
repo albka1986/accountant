@@ -6,5 +6,7 @@
          id="WebApp_ID" version="3.0">
 
     <display-name>Accountant for Alfacell</display-name>
-
+    <session-config>
+        <session-timeout>1200</session-timeout>
+    </session-config>
 </web-app>

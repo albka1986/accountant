@@ -13,4 +13,6 @@ public class BaseDao {
         Session session = sessionFactory.openSession();
         return session;
     }
+
+
 }

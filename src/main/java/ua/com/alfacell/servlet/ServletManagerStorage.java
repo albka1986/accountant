@@ -1,7 +1,7 @@
 package ua.com.alfacell.servlet;// Created by Ponomarenko Oleh on 20.11.2016.
 
-import ua.com.alfacell.dto.UserDto;
-import ua.com.alfacell.service.UserService;
+import ua.com.alfacell.dto.StorageDto;
+import ua.com.alfacell.service.StorageService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin")
-public class ServletAdmin extends HttpServlet {
+@WebServlet("/managerStorage")
+public class ServletManagerStorage extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") != null) {
+            //TODO: list of all products
+            //TODO: list of all categories
+            //TODO: list of all brands
 
-            UserService userService = new UserService();
-            List<UserDto> userDtos = userService.findAll();
-            req.getSession().setAttribute("users", userDtos);
-
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/managerStorage.jsp");
             rd.forward(req, resp);
         } else {
             resp.sendRedirect("/login");

@@ -49,4 +49,10 @@ public class ServiceTests {
         storageDtoList.forEach(System.out::println);
     }
 
+    @Test
+    public void testFindAllUsers(){
+        List<UserDto> userDtos = userService.findAll();
+        Assert.assertNotNull(userDtos);
+    }
+
 }

@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width">
@@ -23,13 +23,14 @@
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
 </head>
 <body>
+
 <br>
 <div align="center">
     <img src="../resources/alfacell_logo.png" alt="ALFACELL" height="95.2" width="324.8">
 </div>
 <br>
 
-<div align="center">
+<div>
     <ul id="menu">
         <li>
             <a href="#">Магазин #${shopId}</a>
@@ -47,41 +48,39 @@
         <li><a href="#">Перемещение</a></li>
         <li><a href="#">Принять товар</a></li>
         <li><a href="/managerStorage">Управлением складом</a></li>
-        <li><a href="/admin">Администрирование</a></li>
         <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
     </ul>
 </div>
-
-<div>
-    <div align="middle">
-        <p>
-            <span><img src="../resources/search.svg" height="24" width="24" ></span>
-            <input type="text" class="filter" name="liveFilter" placeholder=" поиск товара по магазину"/>
-        </p>
-        <br>
-        <table class="table_blur tablesorter" id="myTable">
-            <thead>
-            <tr>
-                <th>Категория</th>
-                <th>Производитель</th>
-                <th>Модель</th>
-                <th>Количество</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <c:forEach items="${storageList}" var="storage">
-                <tr>
-                    <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
-                    <td><c:out value="${storage.productDto.brand}"> </c:out></td>
-                    <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
-                    <td><c:out value="${storage.amount}"> </c:out></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
+<div align="center"><h1>Управление складом</h1></div>
+<div class="managerStorage">
+    Добавить товар в базу:
 </div>
+<div id="table1">
+    <table>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>20</td>
+            <td>30</td>
+            <td>40</td>
+        </tr>
+    </table>
+</div>
+
+<div >
+    Список всех товаров:
+
+</div>
+
 </body>
 </html>
-
