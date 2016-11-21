@@ -85,4 +85,19 @@ public class UserDto {
     public void setShopDto(ShopDto shopDto) {
         this.shopDto = shopDto;
     }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", phone='" + phone + '\'' +
+                ", shopDto=" + shopDto +
+                '}';
+    }
 }

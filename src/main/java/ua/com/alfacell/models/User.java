@@ -31,6 +31,7 @@ public class User {
 
     @Column
     private String phone;
+
     @ManyToOne
     @JoinColumn(name = "shop_id")
     private Shop shop;

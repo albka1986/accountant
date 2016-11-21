@@ -7,7 +7,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import ua.com.alfacell.dao.BaseDao;
 import ua.com.alfacell.dao.CrudDao;
-import ua.com.alfacell.models.Role;
 import ua.com.alfacell.models.User;
 
 import java.util.List;
@@ -32,23 +31,12 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
         return users;
     }
 
-    //AUTOSETUP ROLE - USER!!!
     @Override
     public void save(User user) {
         Session session = getActiveSession();
-        Transaction tx = null;
-        user.setRole(Role.USER);
-        try {
-            tx = session.beginTransaction();
-            session.save(user);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-
+        session.save(user);
+        session.flush();
+        session.close();
     }
 
     @Override

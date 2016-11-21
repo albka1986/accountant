@@ -21,6 +21,7 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <br>
@@ -54,8 +55,8 @@
 
 <div align="center" class="h2">Список пользователей:</div>
 
-<table class="table table-bordered" border="3px">
-    <thead>
+<table class="table">
+    <thead class="thead-inverse">
     <tr>
         <th>#</th>
         <th>Имя</th>
@@ -66,6 +67,7 @@
         <th>Телефон</th>
         <th>№ магазина</th>
         <th>Роль</th>
+        <th>Выбрать</th>
     </tr>
     </thead>
 
@@ -82,11 +84,28 @@
             <td><c:out value="${user.phone}"></c:out></td>
             <td><c:out value="${user.shopDto.id}"></c:out></td>
             <td><c:out value="${user.role}"></c:out></td>
+            <td><c:out value=""><input type="radio"></c:out></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<div class="h3">
 
+    Создать нового пользователя:
+
+</div>
+</br>
+<form method="post" action="/createUser" class="createUser">
+    <p><input type="text" name="firstName" placeholder=" Имя" required></p>
+    <p><input type="text" name="lastName" placeholder=" Фамилия" required></p>
+    <p><input type="text" name="login" placeholder=" логин" required></p>
+    <p><input type="text" name="password" placeholder=" пароль" required></p>
+    <p><input type="text" name="email" placeholder=" email"></p>
+    <p><input type="text" name="phone" placeholder=" телефон"></p>
+    <p><input type="text" name="shopId" placeholder=" № Магазина" required></p>
+    <p><input type="text" name="role" placeholder=" Роль"></p>
+    <p><input type="submit" value="Создать">
+</form>
 
 </body>
 </html>
