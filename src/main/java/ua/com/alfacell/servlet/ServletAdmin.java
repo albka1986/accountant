@@ -1,6 +1,8 @@
 package ua.com.alfacell.servlet;// Created by Ponomarenko Oleh on 20.11.2016.
 
+import ua.com.alfacell.dto.ProductDto;
 import ua.com.alfacell.dto.UserDto;
+import ua.com.alfacell.service.ProductService;
 import ua.com.alfacell.service.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -20,10 +22,14 @@ public class ServletAdmin extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") != null) {
-
             UserService userService = new UserService();
-            List<UserDto> userDtos = userService.findAll();
-            req.getSession().setAttribute("users", userDtos);
+            if (userService.findAll().size() != 0) {
+                List<UserDto> userDtos = userService.findAll();
+                req.getSession().setAttribute("users", userDtos);
+            }
+            ProductService productService = new ProductService();
+            List<ProductDto> productDtos = productService.findAll();
+            req.getSession().setAttribute("products", productDtos);
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin.jsp");
             rd.forward(req, resp);

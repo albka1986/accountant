@@ -1,14 +1,8 @@
-
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.*;
 import ua.com.alfacell.models.*;
-import ua.com.alfacell.service.StorageService;
-import ua.com.alfacell.utilites.HibernateUtil;
 
 import java.util.List;
 
@@ -17,7 +11,7 @@ public class DaoTests {
     //ProductDaoImpl
     CrudDao<Product> productDao = new ProductDaoImpl();
     //UserDaoImpl
-    CrudDao<User> userDao = new UserDaoImpl();
+    UserDaoImpl userDao = new UserDaoImpl();
     //ShopDaoImpl
     CrudDao<Shop> shopDao = new ShopDaoImpl();
     //CategoryDaoImpl
@@ -97,12 +91,10 @@ public class DaoTests {
     @Test
     public void testSaveUser() {
         User user = new User();
-        user.setLogin("Login2");
-        user.setPassword("password2");
-        user.setPhone("0631441234");
-        user.setEmail("alba@ma.ru");
+        user.setLogin("admin");
+        user.setPassword("admin");
         userDao.save(user);
-        System.out.println(userDao.findAll());
+        System.out.println(new UserDaoImpl().findById(1));
     }
 
     @Test

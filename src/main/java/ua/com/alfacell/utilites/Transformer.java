@@ -38,7 +38,9 @@ public class Transformer {
 
         productDto.setId(product.getId());
         productDto.setBarcode(product.getBarcode());
-        productDto.setCategoryDto(categoryToCategoryDto(product.getCategory()));
+        if (product.getCategory() != null) {
+            productDto.setCategoryDto(categoryToCategoryDto(product.getCategory()));
+        }
         productDto.setNameProduct(product.getNameProduct());
         productDto.setImei(product.getImei());
         productDto.setBrand(product.getBrand());
@@ -62,7 +64,10 @@ public class Transformer {
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
         userDto.setPhone(user.getPhone());
-        userDto.setShopDto(shopToShopDto(user.getShop()));
+        if (user.getShop() != null) {
+            userDto.setShopDto(shopToShopDto(user.getShop()));
+        } else {
+        }
         userDto.setEmail(user.getEmail());
         userDto.setRole(user.getRole());
 
@@ -97,5 +102,35 @@ public class Transformer {
         shop.setId(shopDto.getId());
         shop.setNameShop(shopDto.getNameShop());
         return shop;
+    }
+
+    public static List<ProductDto> listProductToProductDto(List<Product> products) {
+        List<ProductDto> productDtos = new LinkedList<>();
+        for (Product product : products) {
+            productDtos.add(Transformer.productToProductDto(product));
+        }
+        return productDtos;
+    }
+
+    public static Product productDtoToProduct(ProductDto productDto) {
+        Product product = new Product();
+        if (productDto.getId() != null) {
+            product.setId(productDto.getId());
+        }
+        product.setBarcode(productDto.getBarcode());
+        product.setImei(productDto.getImei());
+        product.setBrand(productDto.getBrand());
+        product.setNameProduct(productDto.getNameProduct());
+        if (productDto.getCategoryDto() != null) {
+            product.setCategory(categoryDtoToCategory(productDto.getCategoryDto()));
+        }
+        return product;
+    }
+
+    private static Category categoryDtoToCategory(CategoryDto categoryDto) {
+        Category category = new Category();
+        category.setId(categoryDto.getId());
+        category.setNameCategory(categoryDto.getNameCategory());
+        return category;
     }
 }

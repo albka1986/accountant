@@ -9,7 +9,7 @@
 
     <title>Accountant for Alfacell</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="../libs/Bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -22,103 +22,42 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <script src="../js/script.js"></script>
     <%--top menu--%>
-    <link href="../css/navigation-bar.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../js/navigation-bar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
 </head>
 
-<ul class="topnav" id="myTopnav">
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#about">About</a></li>
-    <li class="icon">
-        <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-    </li>
-</ul>
-
 <body>
-<div align="right">
-    <form action="/ServletLogout">
-        <h4> user: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
-            <input type="submit" value="logout" width="20%" height="20%"></h4>
-    </form>
+
+<div name="logo" align="center" class="logo">
+    <a href="/home">
+        <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348">
+    </a>
 </div>
-<div ng-controller="mainController">
-    <p align="center">
-        <img src="../resources/alfacell_logo.png" alt="ALFACELL"></p>
 
-    <div align="center">
-        <h2>Все магазины</h2></div>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="navbar navbar-default ">
-                <div class="container ">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#responsive-menu">
-                            <span class="sr-only">Открыть навигацию</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="responsive-menu">
-                        <ul class="nav navbar-nav">
-                            <li><a href="/allShops">Все магазины</a></li>
-                            <li><a href="/shop1">Магазин №1</a></li>
-                            <li><a href="/shop2">Магазин №2</a></li>
-                            <li><a href="/shop3">Магазин №3</a></li>
-                            <li><a href="/shop4">Магазин №4</a></li>
-                            <li><a href="/shop5">Магазин №5</a></li>
-                            <li><a href="/shop6">Магазин №6</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <br>
-    <div align="middle">
-        <p>
-            <input type="text" class="filter" name="liveFilter" placeholder="фильтр"/>
-        </p>
-        <table class="table_blur tablesorter" id="myTable">
-            <thead>
-            <tr>
-                <th>Категория &#9660</th>
-                <th>Производитель &#9660</th>
-                <th>Модель &#9660</th>
-                <th>Количество &#9660</th>
-                <th>№ 1&#9660</th>
-                <th>№ 2&#9660</th>
-                <th>№ 3&#9660</th>
-                <th>№ 4&#9660</th>
-                <th>№ 5&#9660</th>
-                <th>№ 6&#9660</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-
-            </tr>
-            <tbody>
-        </table>
-    </div>
+<div name="topmenu" align="center">
+    <ul id="menu">
+        <li>
+            <a href="#">Магазин #${shopId}</a>
+            <ul>
+                <li><a href="/allShops">Все магазины</a></li>
+                <li><a href="/shop1">Магазин #1</a></li>
+                <li><a href="/shop2">Магазин #2</a></li>
+                <li><a href="/shop3">Магазин #3</a></li>
+                <li><a href="/shop4">Магазин #4</a></li>
+                <li><a href="/shop5">Магазин #5</a></li>
+                <li><a href="/shop6">Магазин #6</a></li>
+                <li><a href="#">Магазин Александр</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Продажи</a></li>
+        <li><a href="#">Перемещение</a></li>
+        <li><a href="#">Принять товар</a></li>
+        <li><a href="/managerStorage">Управлением складом</a></li>
+        <li><a href="/admin">Администрирование</a></li>
+        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
+    </ul>
 </div>
+
 </body>
 
 </html>

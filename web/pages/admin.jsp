@@ -21,20 +21,22 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/popup.css">
 </head>
 <body>
-<br>
-<div align="center">
-    <img src="../resources/alfacell_logo.png" alt="ALFACELL" height="95.2" width="324.8">
-</div>
-<br>
 
-<div align="center">
+<div name="logo" align="center" class="logo">
+    <a href="/home">
+        <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348">
+    </a>
+</div>
+
+<div name="topmenu" align="center">
     <ul id="menu">
         <li>
             <a href="#">Магазин #${shopId}</a>
             <ul>
+                <li><a href="/allShops">Все магазины</a></li>
                 <li><a href="/shop1">Магазин #1</a></li>
                 <li><a href="/shop2">Магазин #2</a></li>
                 <li><a href="/shop3">Магазин #3</a></li>
@@ -48,10 +50,62 @@
         <li><a href="#">Перемещение</a></li>
         <li><a href="#">Принять товар</a></li>
         <li><a href="/managerStorage">Управлением складом</a></li>
-        <li><a href="#">Администрирование</a></li>
+        <li><a href="/admin">Администрирование</a></li>
         <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
     </ul>
 </div>
+
+<div name="products">
+    <div align="center" class="h2">Список товаров:</div>
+
+    <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>Категория</th>
+            <th>Производитель</th>
+            <th>Модель</th>
+            <th>Штрих-код</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <c:forEach items="${products}" var="product">
+            <tr>
+                <td><c:out value="${product.id}"></c:out></td>
+                <td><c:out value="${product.categoryDto.nameCategory}"></c:out></td>
+                <td><c:out value="${product.brand}"></c:out></td>
+                <td><c:out value="${product.nameProduct}"></c:out></td>
+                <td><c:out value="${product.barcode}"></c:out></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <br>
+
+
+    <a class="button" href="#popup1">Добавить товар</a>
+
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Добавить товар в базу</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form method="post" action="/saveProduct">
+                    <p><input type="text" name="brand" placeholder="Производитель"/></p>
+                    <p><input type="text" name="nameProduct" placeholder="Модель"/></p>
+                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                    <p><input type="submit" value="Добавить"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
 
 <div align="center" class="h2">Список пользователей:</div>
 
@@ -89,23 +143,26 @@
     </c:forEach>
     </tbody>
 </table>
+
 <div class="h3">
 
     Создать нового пользователя:
 
 </div>
-</br>
-<form method="post" action="/createUser" class="createUser">
-    <p><input type="text" name="firstName" placeholder=" Имя" required></p>
-    <p><input type="text" name="lastName" placeholder=" Фамилия" required></p>
-    <p><input type="text" name="login" placeholder=" логин" required></p>
-    <p><input type="text" name="password" placeholder=" пароль" required></p>
-    <p><input type="text" name="email" placeholder=" email"></p>
-    <p><input type="text" name="phone" placeholder=" телефон"></p>
-    <p><input type="text" name="shopId" placeholder=" № Магазина" required></p>
-    <p><input type="text" name="role" placeholder=" Роль"></p>
-    <p><input type="submit" value="Создать">
-</form>
+<div>
+    <form method="post" action="/createUser">
+        <p><input type="text" name="firstName" placeholder=" Имя" required></p>
+        <p><input type="text" name="lastName" placeholder=" Фамилия" required></p>
+        <p><input type="text" name="login" placeholder=" логин" required></p>
+        <p><input type="text" name="password" placeholder=" пароль" required></p>
+        <p><input type="text" name="email" placeholder=" email" required></p>
+        <p><input type="text" name="phone" placeholder=" телефон"></p>
+        <p><input type="text" name="shopId" placeholder=" № Магазина"></p>
+        <p><input type="text" name="role" placeholder=" Роль"></p>
+        <p><input type="submit" value="Создать">
+    </form>
+</div>
+
 
 </body>
 </html>

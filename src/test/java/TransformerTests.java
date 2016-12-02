@@ -3,7 +3,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 import ua.com.alfacell.dao.impl.StorageDaoImpl;
+import ua.com.alfacell.dto.ProductDto;
 import ua.com.alfacell.dto.StorageDto;
+import ua.com.alfacell.models.Product;
 import ua.com.alfacell.models.Storage;
 import ua.com.alfacell.utilites.Transformer;
 
@@ -28,5 +30,16 @@ public class TransformerTests {
         Storage storage = new StorageDaoImpl().findById(1);
         StorageDto storageDto = Transformer.storageToStorageDto(storage);
         Assert.assertNotNull(storageDto);
+    }
+
+    @Test
+    public void testProductDtoToProduct() {
+        ProductDto productDto = new ProductDto();
+        productDto.setBrand("Nokia");
+        productDto.setNameProduct("3310");
+        productDto.setBarcode("1323123123");
+
+        Product product = Transformer.productDtoToProduct(productDto);
+        Assert.assertNotNull(product);
     }
 }

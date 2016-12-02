@@ -34,9 +34,19 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
     @Override
     public void save(User user) {
         Session session = getActiveSession();
-        session.save(user);
-        session.flush();
-        session.close();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.save(user);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
     }
 
     @Override
@@ -49,7 +59,8 @@ public class UserDaoImpl extends BaseDao implements CrudDao<User> {
             session.update(updateUser);
             tx.commit();
         } catch (Exception e) {
-            if (tx != null) tx.rollback();
+            if (tx != null)
+                tx.rollback();
             e.printStackTrace();
         } finally {
             session.close();

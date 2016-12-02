@@ -26,6 +26,10 @@ public class ServletMain extends HttpServlet {
             rd.forward(req, resp);
         }
 
-        resp.sendRedirect("/shop" + user.getShop().getId());
+        if (user.getShop() == null) {
+            resp.sendRedirect("/allShops");
+        } else {
+            resp.sendRedirect("/shop" + user.getShop().getId());
+        }
     }
 }

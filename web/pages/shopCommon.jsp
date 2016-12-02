@@ -23,17 +23,19 @@
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
 </head>
 <body>
-<br>
-<div align="center">
-    <img src="../resources/alfacell_logo.png" alt="ALFACELL" height="95.2" width="324.8">
-</div>
-<br>
 
-<div align="center">
+<div name="logo" align="center" class="logo">
+    <a href="/home">
+        <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348">
+    </a>
+</div>
+
+<div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#">Магазин #${shopId}</a>
+            <a href="#"><img src="../resources/icons/home.eps">Магазин #${shopId}</a>
             <ul>
+                <li><a href="/allShops">Все магазины</a></li>
                 <li><a href="/shop1">Магазин #1</a></li>
                 <li><a href="/shop2">Магазин #2</a></li>
                 <li><a href="/shop3">Магазин #3</a></li>
@@ -55,8 +57,8 @@
 <div>
     <div align="middle">
         <p>
-            <span><img src="../resources/search.svg" height="24" width="24" ></span>
-            <input type="text" class="filter" name="liveFilter" placeholder=" поиск товара по магазину"/>
+            <span><img src="../resources/search.svg" height="24" width="24"></span>
+            <input type="text" class="filter" name="liveFilter" placeholder="   поиск товара по магазину"/>
         </p>
         <br>
         <table class="table_blur tablesorter" id="myTable">

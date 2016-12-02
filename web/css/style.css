@@ -4,7 +4,8 @@
 }
 
 BODY {
-    background-image: url("https://pp.vk.me/c637426/v637426004/ba19/QjBAuMJdIBY.jpg");
+    /*background-image: url("https://pp.vk.me/c637426/v637426004/ba19/QjBAuMJdIBY.jpg");*/
+    background-image: url("../resources/background.png");
     background-size: cover;
 }
 
@@ -85,3 +86,7 @@ BODY {
     padding: 20px;
 }
 
+.logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

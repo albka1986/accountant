@@ -26,7 +26,7 @@
 
 <br>
 <div align="center">
-    <img src="../resources/alfacell_logo.png" alt="ALFACELL" height="95.2" width="324.8">
+    <img src="../resources/logo.png" alt="ALFACELL" height="95.2" width="324.8">
 </div>
 <br>
 
