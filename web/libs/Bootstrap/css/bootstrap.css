@@ -1092,11 +1092,13 @@ input,
 button,
 select,
 textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   width: 430px;
-  height: 30px;
+  height: 35px;
   border-radius: 10px;
 }
 a {
@@ -1116,6 +1118,7 @@ figure {
   margin: 0;
 }
 img {
+  margin-right: 7px;
   vertical-align: middle;
 }
 .img-responsive,

@@ -21,47 +21,56 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
+
 </head>
 <body>
-
-<div name="logo" align="center" class="logo">
-    <a href="/home">
-        <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348">
-    </a>
-</div>
 
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#"><img src="../resources/icons/home.eps">Магазин #${shopId}</a>
+            <a href="#">
+                <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
+                Магазин #
+                ${shopId}</a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
-                <li><a href="/shop1">Магазин #1</a></li>
-                <li><a href="/shop2">Магазин #2</a></li>
-                <li><a href="/shop3">Магазин #3</a></li>
-                <li><a href="/shop4">Магазин #4</a></li>
-                <li><a href="/shop5">Магазин #5</a></li>
-                <li><a href="/shop6">Магазин #6</a></li>
+                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop4">Магазин #4(Французский булвьар)</a></li>
+                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
                 <li><a href="#">Магазин Александр</a></li>
             </ul>
         </li>
-        <li><a href="#">Продажи</a></li>
-        <li><a href="#">Перемещение</a></li>
-        <li><a href="#">Принять товар</a></li>
-        <li><a href="/managerStorage">Управлением складом</a></li>
-        <li><a href="/admin">Администрирование</a></li>
-        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
+        <li><a href="#">
+            <img src="../resources/icons/sales.svg" height="16px" width="16px">Продажи</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/transfer.svg" height="16px" width="16px">Перемещение</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/receive.svg" height="16px" width="16px">Принять товар</img>
+        </a></li>
+        <li><a href="/managerStorage">
+            <img src="../resources/icons/management.svg" height="16px" width="16px"></img>
+            Управлением складом</a></li>
+        <li><a href="/admin">
+            <img src="../resources/icons/admin.svg" height="16px" width="16px"></img>
+            Администрирование</a></li>
+        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">
+            <img src="../resources/icons/exit.svg" height="16px" width="16px"></img>
+            Выход</a></li>
     </ul>
 </div>
 
-<div>
-    <div align="middle">
+<div name="search" align="middle" id="search">
         <p>
-            <span><img src="../resources/search.svg" height="24" width="24"></span>
-            <input type="text" class="filter" name="liveFilter" placeholder="   поиск товара по магазину"/>
+            <span><img src="../resources/search.svg" height="30" width="30"></span>
+            <input type="text" class="filter" name="liveFilter" placeholder="   Поиск товара по магазину"/>
         </p>
-        <br>
-        <table class="table_blur tablesorter" id="myTable">
+
+    <table class="table_blur">
             <thead>
             <tr>
                 <th>Категория</th>
@@ -83,7 +92,6 @@
             </tbody>
         </table>
     </div>
-</div>
 </body>
 </html>
 

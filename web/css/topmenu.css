@@ -6,13 +6,13 @@
 
 #menu {
 
-    display: inline-block;
+    /*display: inline-block;*/
     /*width: 885px;*/
-    margin: 30px auto;
+    /*margin: 30px auto;*/
     border: 1px solid #222;
     background-color: #111;
     background-image: linear-gradient(#444, #111);
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     box-shadow: 0 1px 1px #777;
 }
 
@@ -27,7 +27,11 @@
 }
 
 #menu {
-    zoom:1;
+    zoom: 1;
+}
+
+#menu img {
+    margin-right: 7px;
 }
 
 #menu li {
@@ -37,11 +41,10 @@
     position: relative;
 }
 
-
-
 #menu a {
+    width: auto;
     float: left;
-    padding: 12px 30px;
+    padding: 12px 25px;
     color: #999;
     text-transform: uppercase;
     font: bold 12px Arial, Helvetica;
@@ -49,11 +52,15 @@
     text-shadow: 0 1px 0 #000;
 }
 
+#menu a img {
+    fill: #fafafa;
+}
+
 #menu li:hover > a {
     color: #fafafa;
 }
 
-*html #menu li a:hover { /* IE6 only */
+* html #menu li a:hover { /* IE6 only */
     color: #fafafa;
 }
 
@@ -68,7 +75,7 @@
     z-index: 1;
     background: #444;
     background: linear-gradient(#444, #111);
-    box-shadow: 0 -1px 0 rgba(255,255,255,.3);
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, .3);
     border-radius: 3px;
     transition: all .2s ease-in-out;
 }
@@ -84,7 +91,7 @@
     left: 150px;
     margin: 0 0 0 20px;
     _margin: 0; /*IE6 only*/
-    box-shadow: -1px 0 0 rgba(255,255,255,.3);
+    box-shadow: -1px 0 0 rgba(255, 255, 255, .3);
 }
 
 #menu ul li {
@@ -101,11 +108,11 @@
 
 #menu ul a {
     padding: 10px;
-    width: 130px;
+    width: auto;
     _height: 10px; /*IE6 only*/
     display: block;
     white-space: nowrap;
-    float: none;
+    float: left;
     text-transform: none;
 }
 

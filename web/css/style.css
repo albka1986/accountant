@@ -72,13 +72,19 @@ BODY {
 
 }
 
+.table_blur tr:hover {
+    background-color: #d6faff;
+}
+
+
 .table_blur tbody:hover tr:hover td {
     color: #444444;
     text-shadow: none;
 }
 
-.search {
-    border-radius: 20px;
+#search {
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .createUser {
@@ -89,4 +95,9 @@ BODY {
 .logo {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.buttonAdd {
+    background-color: #0186ba;
+    background-image: linear-gradient(#04acec, #0186ba);
 }

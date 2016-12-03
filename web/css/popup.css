@@ -60,6 +60,6 @@
 }
 
 .popup .content {
-    max-height: 30%;
+    max-height: 70%;
     overflow: auto;
 }

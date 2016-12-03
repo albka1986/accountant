@@ -16,9 +16,9 @@
 <br>
 
 <form class="form-signin" role="form" action="/login" method="post">
-    <input type="text" class="form-control" required placeholder="login" autofocus="" name="login">
+    <input type="text" class="form-control" required placeholder="Login" autofocus="" name="login">
     <br>
-    <input type="password" class="form-control" placeholder="password" required="" name="password">
+    <input type="password" class="form-control" placeholder="Password" required="" name="password">
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>

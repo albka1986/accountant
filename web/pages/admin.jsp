@@ -24,87 +24,45 @@
     <link rel="stylesheet" type="text/css" href="../css/popup.css">
 </head>
 <body>
-
-<div name="logo" align="center" class="logo">
-    <a href="/home">
-        <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348">
-    </a>
-</div>
-
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#">Магазин #${shopId}</a>
+            <a href="#">
+                <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
+                Магазин #
+                ${shopId}</a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
-                <li><a href="/shop1">Магазин #1</a></li>
-                <li><a href="/shop2">Магазин #2</a></li>
-                <li><a href="/shop3">Магазин #3</a></li>
-                <li><a href="/shop4">Магазин #4</a></li>
-                <li><a href="/shop5">Магазин #5</a></li>
-                <li><a href="/shop6">Магазин #6</a></li>
+                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop4">Магазин #4(Французский булвьар)</a></li>
+                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
                 <li><a href="#">Магазин Александр</a></li>
             </ul>
         </li>
-        <li><a href="#">Продажи</a></li>
-        <li><a href="#">Перемещение</a></li>
-        <li><a href="#">Принять товар</a></li>
-        <li><a href="/managerStorage">Управлением складом</a></li>
-        <li><a href="/admin">Администрирование</a></li>
-        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
+        <li><a href="#">
+            <img src="../resources/icons/sales.svg" height="16px" width="16px">Продажи</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/transfer.svg" height="16px" width="16px">Перемещение</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/receive.svg" height="16px" width="16px">Принять товар</img>
+        </a></li>
+        <li><a href="/managerStorage">
+            <img src="../resources/icons/management.svg" height="16px" width="16px"></img>
+            Управлением складом</a></li>
+        <li><a href="/admin">
+            <img src="../resources/icons/admin.svg" height="16px" width="16px"></img>
+            Администрирование</a></li>
+        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">
+            <img src="../resources/icons/exit.svg" height="16px" width="16px"></img>
+            Выход</a></li>
     </ul>
 </div>
 
-<div name="products">
-    <div align="center" class="h2">Список товаров:</div>
-
-    <table class="table">
-        <thead class="thead-inverse">
-        <tr>
-            <th>#</th>
-            <th>Категория</th>
-            <th>Производитель</th>
-            <th>Модель</th>
-            <th>Штрих-код</th>
-        </tr>
-        </thead>
-
-
-        <tbody>
-        <c:forEach items="${products}" var="product">
-            <tr>
-                <td><c:out value="${product.id}"></c:out></td>
-                <td><c:out value="${product.categoryDto.nameCategory}"></c:out></td>
-                <td><c:out value="${product.brand}"></c:out></td>
-                <td><c:out value="${product.nameProduct}"></c:out></td>
-                <td><c:out value="${product.barcode}"></c:out></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <br>
-
-
-    <a class="button" href="#popup1">Добавить товар</a>
-
-
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>Добавить товар в базу</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-                <form method="post" action="/saveProduct">
-                    <p><input type="text" name="brand" placeholder="Производитель"/></p>
-                    <p><input type="text" name="nameProduct" placeholder="Модель"/></p>
-                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
-                    <p><input type="submit" value="Добавить"></p>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-</div>
 
 
 <div align="center" class="h2">Список пользователей:</div>

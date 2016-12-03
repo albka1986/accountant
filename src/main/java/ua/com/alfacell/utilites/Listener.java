@@ -86,6 +86,10 @@ public class Listener implements ServletContextListener,
             shop = new Shop();
             shop.setNameShop("Петровского");
             shopDao.save(shop);
+
+            shop = new Shop();
+            shop.setNameShop("Александр");
+            shopDao.save(shop);
         }
     }
 

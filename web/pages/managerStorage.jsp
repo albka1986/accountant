@@ -21,64 +21,96 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
+    <link rel="stylesheet" type="text/css" href="../css/popup.css">
 </head>
 <body>
-
-<br>
-<div align="center">
-    <img src="../resources/logo.png" alt="ALFACELL" height="95.2" width="324.8">
-</div>
-<br>
-
-<div>
+<div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#">Магазин #${shopId}</a>
+            <a href="#">
+                <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
+                Магазин #
+                ${shopId}</a>
             <ul>
-                <li><a href="/shop1">Магазин #1</a></li>
-                <li><a href="/shop2">Магазин #2</a></li>
-                <li><a href="/shop3">Магазин #3</a></li>
-                <li><a href="/shop4">Магазин #4</a></li>
-                <li><a href="/shop5">Магазин #5</a></li>
-                <li><a href="/shop6">Магазин #6</a></li>
+                <li><a href="/allShops">Все магазины</a></li>
+                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop4">Магазин #4(Французский булвьар)</a></li>
+                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
                 <li><a href="#">Магазин Александр</a></li>
             </ul>
         </li>
-        <li><a href="#">Продажи</a></li>
-        <li><a href="#">Перемещение</a></li>
-        <li><a href="#">Принять товар</a></li>
-        <li><a href="/managerStorage">Управлением складом</a></li>
-        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">Выход</a></li>
+        <li><a href="#">
+            <img src="../resources/icons/sales.svg" height="16px" width="16px">Продажи</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/transfer.svg" height="16px" width="16px">Перемещение</img>
+        </a></li>
+        <li><a href="#">
+            <img src="../resources/icons/receive.svg" height="16px" width="16px">Принять товар</img>
+        </a></li>
+        <li><a href="/managerStorage">
+            <img src="../resources/icons/management.svg" height="16px" width="16px"></img>
+            Управлением складом</a></li>
+        <li><a href="/admin">
+            <img src="../resources/icons/admin.svg" height="16px" width="16px"></img>
+            Администрирование</a></li>
+        <li><a href="/ServletLogout" title="${sessionScope.user.firstName} ${sessionScope.user.lastName}">
+            <img src="../resources/icons/exit.svg" height="16px" width="16px"></img>
+            Выход</a></li>
     </ul>
 </div>
-<div align="center"><h1>Управление складом</h1></div>
-<div class="managerStorage">
-    Добавить товар в базу:
-</div>
-<div id="table1">
-    <table>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
 
+<div name="products">
+    <div align="center" class="h2">Список товаров:</div>
+
+    <table class="table">
+        <thead class="thead-inverse">
         <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <th>#</th>
+            <th>Категория</th>
+            <th>Производитель</th>
+            <th>Модель</th>
+            <th>Штрих-код</th>
         </tr>
-        <tr>
-            <td>10</td>
-            <td>20</td>
-            <td>30</td>
-            <td>40</td>
-        </tr>
+        </thead>
+
+
+        <tbody>
+        <c:forEach items="${products}" var="product">
+            <tr>
+                <td><c:out value="${product.id}"></c:out></td>
+                <td><c:out value="${product.categoryDto.nameCategory}"></c:out></td>
+                <td><c:out value="${product.brand}"></c:out></td>
+                <td><c:out value="${product.nameProduct}"></c:out></td>
+                <td><c:out value="${product.barcode}"></c:out></td>
+            </tr>
+        </c:forEach>
+        </tbody>
     </table>
-</div>
+    <br>
 
-<div >
-    Список всех товаров:
+
+    <a class="button" href="#popup1">Добавить товар</a>
+
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Добавить товар в базу</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form method="post" action="/saveProduct">
+                    <p><input type="text" name="brand" placeholder="Производитель"/></p>
+                    <p><input type="text" name="nameProduct" placeholder="Модель"/></p>
+                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                    <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
