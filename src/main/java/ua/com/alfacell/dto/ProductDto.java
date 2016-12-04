@@ -5,7 +5,6 @@ public class ProductDto {
     private String nameProduct;
     private String barcode;
     private String brand;
-    private String imei;
     private CategoryDto categoryDto;
 
     public Integer getId() {
@@ -40,13 +39,6 @@ public class ProductDto {
         this.brand = brand;
     }
 
-    public String getImei() {
-        return imei;
-    }
-
-    public void setImei(String imei) {
-        this.imei = imei;
-    }
 
     public CategoryDto getCategoryDto() {
         return categoryDto;

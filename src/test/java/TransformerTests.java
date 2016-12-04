@@ -1,7 +1,7 @@
 // Created by Ponomarenko Oleh on 06.11.2016.
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import ua.com.alfacell.dao.impl.StorageDaoImpl;
 import ua.com.alfacell.dto.ProductDto;
 import ua.com.alfacell.dto.StorageDto;

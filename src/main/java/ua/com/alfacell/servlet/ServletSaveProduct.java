@@ -17,7 +17,6 @@ public class ServletSaveProduct extends HttpServlet {
             ProductDto productDto = new ProductDto();
             productDto.setBrand(req.getParameter("brand"));
             productDto.setNameProduct(req.getParameter("nameProduct"));
-            productDto.setImei(req.getParameter("imei"));
             productDto.setBarcode(req.getParameter("barcode"));
             new ProductService().save(productDto);
             resp.sendRedirect("/admin");

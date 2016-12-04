@@ -92,7 +92,6 @@
     </table>
     <br>
 
-
     <a class="button" href="#popup1">Добавить товар</a>
 
 
@@ -101,7 +100,8 @@
             <h2>Добавить товар в базу</h2>
             <a class="close" href="#">&times;</a>
             <div class="content">
-                <form method="post" action="/saveProduct">
+                <form method="post" action="/saveProduct" accept-charset="UTF-8">
+                    <p><input type="ы" name="brand" placeholder="Категория"/></p>
                     <p><input type="text" name="brand" placeholder="Производитель"/></p>
                     <p><input type="text" name="nameProduct" placeholder="Модель"/></p>
                     <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>

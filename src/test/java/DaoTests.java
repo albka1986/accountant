@@ -1,10 +1,13 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import ua.com.alfacell.dao.CrudDao;
 import ua.com.alfacell.dao.impl.*;
 import ua.com.alfacell.models.*;
 
 import java.util.List;
+import java.util.Random;
+
+import static util.MyRandom.falseOrTrue;
 
 public class DaoTests {
 
@@ -37,7 +40,6 @@ public class DaoTests {
         Product product = new Product();
         product.setBarcode("123123123123");
         product.setBrand("Huawei");
-        product.setImei("123123123123123");
         product.setNameProduct("y3c");
 
         productDao.save(product);
@@ -50,7 +52,6 @@ public class DaoTests {
         updateProduct.setId(1);
         updateProduct.setNameProduct("y5c");
         updateProduct.setBrand("LG");
-        updateProduct.setImei("123123123123");
         updateProduct.setBarcode("123123123123");
 
         System.out.println("Before");
@@ -106,6 +107,33 @@ public class DaoTests {
         user.setLastName("Ponomarenko");
         user.setPhone("+380631110001");
         user.setEmail("my@email.com");
+
+        userDao.save(user);
+    }
+
+    @Test(invocationCount = 100)
+    public void testSaveUserRandom() {
+        Random random = new Random();
+        int x = random.nextInt(99999);
+
+        User user = new User();
+
+        user.setFirstName("name" + x);
+        user.setLastName("lastName" + x);
+        user.setLogin("login" + x);
+        user.setPassword("password" + x);
+        user.setEmail("mail.@mail.com" + x);
+        if (falseOrTrue()) {
+            user.setPhone("777-" + random.nextInt(100) + "-" + random.nextInt(100));
+        }
+        if (falseOrTrue()) {
+            user.setRole(Role.USER);
+        }
+        if (falseOrTrue()) {
+            int amountShops = shopDao.findAll().size();
+            Shop shop = shopDao.findById(new Random().nextInt(amountShops));
+            user.setShop(shop);
+        }
 
         userDao.save(user);
     }
@@ -275,7 +303,7 @@ public class DaoTests {
     public void testUpdateStorage() {
         Storage storage = new Storage();
         storage.setId(1);
-        storage.setAmount(10);
+        storage.setImei(String.valueOf(new Random().nextInt(999999999)));
         storageDao.update(storage);
     }
 
@@ -295,12 +323,20 @@ public class DaoTests {
     }
 
     @Test
-    public void testAmountOfProductAllShops(){
+    public void testAmountOfProductAllShops() {
       /*  List<Storage> storageList = new StorageDaoImpl().amountOfProductAllShops();
         Assert.assertNotNull(storageList);
         for (Storage storage : storageList) {
             System.out.println(storage);
         }*/
+    }
+
+    @Test(invocationCount = 10)
+    public void testRandomBoolean() {
+
+        boolean result = falseOrTrue();
+        System.out.println(result);
+
     }
 
 }

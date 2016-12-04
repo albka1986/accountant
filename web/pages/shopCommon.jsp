@@ -86,7 +86,7 @@
                     <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
                     <td><c:out value="${storage.productDto.brand}"> </c:out></td>
                     <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
-                    <td><c:out value="${storage.amount}"> </c:out></td>
+                    <td><c:out value="${storage.imdei}"> </c:out></td>
                 </tr>
             </c:forEach>
             </tbody>

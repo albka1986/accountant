@@ -117,8 +117,9 @@
 }
 
 #menu ul a:hover {
-    background-color: #0186ba;
-    background-image: linear-gradient(#04acec, #0186ba);
+    width: 100%;
+    margin: 0;
+    background: #0186ba linear-gradient(#04acec, #0186ba);
 }
 
 #menu ul li:first-child > a {

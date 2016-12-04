@@ -1,12 +1,10 @@
 package ua.com.alfacell.utilites;// Created by Ponomarenko Oleh on 09.11.2016.
 
 import ua.com.alfacell.dao.impl.CategoryDaoImpl;
+import ua.com.alfacell.dao.impl.ProductDaoImpl;
 import ua.com.alfacell.dao.impl.ShopDaoImpl;
 import ua.com.alfacell.dao.impl.UserDaoImpl;
-import ua.com.alfacell.models.Category;
-import ua.com.alfacell.models.Role;
-import ua.com.alfacell.models.Shop;
-import ua.com.alfacell.models.User;
+import ua.com.alfacell.models.*;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -31,6 +29,72 @@ public class Listener implements ServletContextListener,
         insertShops();
         insertAdmin();
         insertCategories();
+        insertProducts();
+    }
+
+    private void insertProducts() {
+        ProductDaoImpl productDao = new ProductDaoImpl();
+        if (productDao.findAll().size() == 0) {
+            Product product = new Product();
+            Category category = new Category();
+            category.setId(1);
+            product.setCategory(category);
+            product.setBrand("LG");
+            product.setNameProduct("G4");
+            product.setBarcode("6065450645");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("LG");
+            product.setNameProduct("G3");
+            product.setBarcode("6065450644");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("LG");
+            product.setNameProduct("G2");
+            product.setBarcode("6065450643");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("LG");
+            product.setNameProduct("G1");
+            product.setBarcode("6065450642");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("Samsung");
+            product.setNameProduct("J1");
+            product.setBarcode("545466685");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("Samsung");
+            product.setNameProduct("J2");
+            product.setBarcode("545466686");
+            productDao.save(product);
+
+            product = new Product();
+            product.setCategory(category);
+            product.setBrand("Samsung");
+            product.setNameProduct("J3");
+            product.setBarcode("545466687");
+            productDao.save(product);
+
+            product = new Product();
+            category = new Category();
+            category.setId(2);
+            product.setCategory(category);
+            product.setBrand("Чехлы и Ко");
+            product.setNameProduct("Чехол удобный");
+            product.setBarcode("12512412412");
+            productDao.save(product);
+        }
     }
 
     private void insertCategories() {

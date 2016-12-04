@@ -64,7 +64,6 @@
 </div>
 
 
-
 <div align="center" class="h2">Список пользователей:</div>
 
 <table class="table">
@@ -102,23 +101,28 @@
     </tbody>
 </table>
 
-<div class="h3">
 
-    Создать нового пользователя:
+<a class="button" href="#popup1">Добавить пользователя</a>
 
-</div>
-<div>
-    <form method="post" action="/createUser">
-        <p><input type="text" name="firstName" placeholder=" Имя" required></p>
-        <p><input type="text" name="lastName" placeholder=" Фамилия" required></p>
-        <p><input type="text" name="login" placeholder=" логин" required></p>
-        <p><input type="text" name="password" placeholder=" пароль" required></p>
-        <p><input type="text" name="email" placeholder=" email" required></p>
-        <p><input type="text" name="phone" placeholder=" телефон"></p>
-        <p><input type="text" name="shopId" placeholder=" № Магазина"></p>
-        <p><input type="text" name="role" placeholder=" Роль"></p>
-        <p><input type="submit" value="Создать">
-    </form>
+
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Создать нового пользователя</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form method="post" action="/createUser" accept-charset="UTF-8">
+                <p><input type="text" name="firstName" placeholder=" Имя" required></p>
+                <p><input type="text" name="lastName" placeholder=" Фамилия" required></p>
+                <p><input type="text" name="login" placeholder=" логин" required></p>
+                <p><input type="text" name="password" placeholder=" пароль" required></p>
+                <p><input type="email" name="email" placeholder=" email" required></p>
+                <p><input type="text" name="phone" placeholder=" телефон"></p>
+                <p><input type="text" name="shopId" placeholder=" № Магазина"></p>
+                <p><input type="text" name="role" placeholder=" Роль"></p>
+                <p><input type="submit" value="Создать">
+            </form>
+        </div>
+    </div>
 </div>
 
 

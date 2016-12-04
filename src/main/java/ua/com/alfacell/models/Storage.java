@@ -15,8 +15,17 @@ public class Storage {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-    @Column
-    private Integer amount;
+    @Column(name = "imei", unique = true, nullable = false)
+    private String imei;
+
+
+    public String getImei() {
+        return imei;
+    }
+
+    public void setImei(String imei) {
+        this.imei = imei;
+    }
 
     public Integer getId() {
         return id;
@@ -42,20 +51,6 @@ public class Storage {
         this.product = product;
     }
 
-    public Integer getAmount() {
-        return amount;
-    }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
 
-    @Override
-    public String toString() {
-        return "\nStorage:" +
-                "\nid=" + id +
-                "\nshop=" + shop +
-                "\nproduct=" + product +
-                "\namount=" + amount;
-    }
 }

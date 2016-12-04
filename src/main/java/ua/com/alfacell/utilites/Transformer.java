@@ -20,7 +20,7 @@ public class Transformer {
     public static StorageDto storageToStorageDto(Storage storage) {
         StorageDto storageDto = new StorageDto();
         storageDto.setId(storage.getId());
-        storageDto.setAmount(storage.getAmount());
+        storageDto.setImei(storage.getImei());
         storageDto.setProductDto(productToProductDto(storage.getProduct()));
         storageDto.setShopDto(shopToShopDto(storage.getShop()));
         return storageDto;
@@ -42,7 +42,6 @@ public class Transformer {
             productDto.setCategoryDto(categoryToCategoryDto(product.getCategory()));
         }
         productDto.setNameProduct(product.getNameProduct());
-        productDto.setImei(product.getImei());
         productDto.setBrand(product.getBrand());
 
         return productDto;
@@ -93,7 +92,9 @@ public class Transformer {
         user.setEmail(userDto.getEmail());
         user.setRole(userDto.getRole());
         user.setPhone(user.getPhone());
-        user.setShop(shopDtoToShop(userDto.getShopDto()));
+        if (userDto.getShopDto() != null) {
+            user.setShop(shopDtoToShop(userDto.getShopDto()));
+        }
         return user;
     }
 
@@ -118,7 +119,6 @@ public class Transformer {
             product.setId(productDto.getId());
         }
         product.setBarcode(productDto.getBarcode());
-        product.setImei(productDto.getImei());
         product.setBrand(productDto.getBrand());
         product.setNameProduct(productDto.getNameProduct());
         if (productDto.getCategoryDto() != null) {
@@ -132,5 +132,15 @@ public class Transformer {
         category.setId(categoryDto.getId());
         category.setNameCategory(categoryDto.getNameCategory());
         return category;
+    }
+
+    public static List<ShopDto> listShopToShopDto(List<Shop> shopList) {
+        List<ShopDto> shopDtos = new LinkedList<>();
+        for (Shop shop : shopList) {
+            ShopDto shopDto = Transformer.shopToShopDto(shop);
+            shopDtos.add(shopDto);
+        }
+
+        return shopDtos;
     }
 }

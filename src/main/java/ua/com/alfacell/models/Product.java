@@ -8,16 +8,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(nullable = false)
     private String nameProduct;
     @Column
     private String barcode;
-    @Column
+    @Column(nullable = false)
     private String brand;
-    @Column
-    private String imei;
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
 
@@ -53,13 +51,6 @@ public class Product {
         this.brand = brand;
     }
 
-    public String getImei() {
-        return imei;
-    }
-
-    public void setImei(String imei) {
-        this.imei = imei;
-    }
 
     public Category getCategory() {
         return category;
@@ -75,8 +66,7 @@ public class Product {
                 "\nid=" + id +
                 ", \nnameProduct='" + nameProduct +
                 ", \nbarcode='" + barcode +
-                ", \nbrand='" + brand +
-                ", \nimei='" + imei;
+                ", \nbrand='" + brand;
     }
 
 }

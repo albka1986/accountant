@@ -1,8 +1,9 @@
-package ua.com.alfacell.servlet;// Created by Ponomarenko Oleh on 22.11.2016.
+package ua.com.alfacell.servlet;
 
 import ua.com.alfacell.dto.ShopDto;
 import ua.com.alfacell.dto.UserDto;
 import ua.com.alfacell.models.Role;
+import ua.com.alfacell.service.ShopService;
 import ua.com.alfacell.service.UserService;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,8 @@ import java.io.IOException;
 @WebServlet("/createUser")
 public class ServletCreateUser extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setCharacterEncoding("UTF-8");
         UserDto userDto = new UserDto();
         userDto.setFirstName(req.getParameter("firstName"));
         userDto.setLastName(req.getParameter("lastName"));
@@ -22,9 +25,13 @@ public class ServletCreateUser extends HttpServlet {
         userDto.setPassword(req.getParameter("password"));
         userDto.setEmail(req.getParameter("email"));
         userDto.setPhone(req.getParameter("phone"));
-        ShopDto shopDto = new ShopDto();
-        shopDto.setId(new Integer(req.getParameter("shopId")));
-        userDto.setShopDto(shopDto);
+
+        if (req.getParameter("shopId") != null && req.getParameter("shopId") != "") {
+            int shopId = Integer.parseInt(req.getParameter("shopId"));
+            ShopDto shopDto = new ShopService().findById(shopId);
+            userDto.setShopDto(shopDto);
+        }
+
         if (req.getParameter("role").equals("ADMIN")) {
             userDto.setRole(Role.ADMIN);
         }

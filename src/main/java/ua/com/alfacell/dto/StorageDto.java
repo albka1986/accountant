@@ -4,7 +4,7 @@ public class StorageDto {
     private Integer id;
     private ShopDto shopDto;
     private ProductDto productDto;
-    private Integer amount;
+    private String imei;
 
     public Integer getId() {
         return id;
@@ -30,21 +30,11 @@ public class StorageDto {
         this.productDto = productDto;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public String getImei() {
+        return imei;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "StorageDto{" +
-                "id=" + id +
-                ", shopDto=" + shopDto +
-                ", productDto=" + productDto +
-                ", amount=" + amount +
-                '}';
+    public void setImei(String imei) {
+        this.imei = imei;
     }
 }

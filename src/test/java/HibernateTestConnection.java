@@ -2,7 +2,7 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import ua.com.alfacell.utilites.HibernateUtil;
 
 public class HibernateTestConnection {
