@@ -107,6 +107,10 @@ public class Listener implements ServletContextListener,
             category = new Category();
             category.setNameCategory("Чехлы");
             categoryDao.save(category);
+
+            category = new Category();
+            category.setNameCategory("Другое");
+            categoryDao.save(category);
         }
 
     }

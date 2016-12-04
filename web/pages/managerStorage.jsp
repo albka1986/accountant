@@ -66,6 +66,39 @@
 <div name="products">
     <div align="center" class="h2">Список товаров:</div>
 
+    <div name="search" align="middle" id="search">
+        <p>
+            <span><img src="../resources/search.svg" height="30" width="30"></span>
+            <input type="text" class="filter" name="liveFilter" placeholder="   Поиск товара в базе"/>
+        </p>
+    </div>
+
+    <a class="button" href="#popup1">Добавить товар</a>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Добавить товар в базу</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form method="post" action="/saveProduct" accept-charset="UTF-8">
+                    <p>
+                        <select required>
+                            <option selected disabled>Категория...</option>
+                            <c:forEach items="${categories}" var="category">
+                                <option><c:out value="${category.nameCategory}"/></option>
+                            </c:forEach>
+                        </select>
+                    </p>
+                    <p><input type="text" name="brand" placeholder="Производитель" required/></p>
+                    <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
+                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                    <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
     <table class="table">
         <thead class="thead-inverse">
         <tr>
@@ -91,25 +124,6 @@
         </tbody>
     </table>
     <br>
-
-    <a class="button" href="#popup1">Добавить товар</a>
-
-
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>Добавить товар в базу</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-                <form method="post" action="/saveProduct" accept-charset="UTF-8">
-                    <p><input type="ы" name="brand" placeholder="Категория"/></p>
-                    <p><input type="text" name="brand" placeholder="Производитель"/></p>
-                    <p><input type="text" name="nameProduct" placeholder="Модель"/></p>
-                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
-                    <p><input type="submit" value="Добавить" class="buttonAdd"></p>
-                </form>
-            </div>
-        </div>
-    </div>
 
 
 </div>

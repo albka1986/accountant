@@ -98,6 +98,6 @@ BODY {
 }
 
 .buttonAdd {
-    background-color: #0186ba;
-    background-image: linear-gradient(#04acec, #0186ba);
+    background: #0186ba linear-gradient(#04acec, #0186ba);
+    color: white;
 }

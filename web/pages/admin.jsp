@@ -116,9 +116,25 @@
                 <p><input type="text" name="login" placeholder=" логин" required></p>
                 <p><input type="text" name="password" placeholder=" пароль" required></p>
                 <p><input type="email" name="email" placeholder=" email" required></p>
-                <p><input type="text" name="phone" placeholder=" телефон"></p>
-                <p><input type="text" name="shopId" placeholder=" № Магазина"></p>
-                <p><input type="text" name="role" placeholder=" Роль"></p>
+                <p><input type="tel" name="phone" placeholder=" телефон" pattern="[\d]*"></p>
+                <p>
+                    <select name="shopId">
+                        <option disabled selected>Выберите магазин...</option>
+                        <c:forEach items="${shops}" var="shop">
+                            <option value="${shop.id}">${shop.nameShop}</option>
+                        </c:forEach>
+                        <option></option>
+                    </select>
+                </p>
+                <p>
+                    <select name="roleNewUser">
+                        <option disabled selected>Уровень доступа...</option>
+                        <c:forEach items="${roles}" var="role">
+                            <option value="${role}">${role}</option>
+                        </c:forEach>
+                        <option></option>
+                    </select>
+                </p>
                 <p><input type="submit" value="Создать">
             </form>
         </div>

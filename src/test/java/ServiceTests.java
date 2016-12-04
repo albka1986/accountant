@@ -88,4 +88,45 @@ public class ServiceTests {
 
         userService.save(userDto);
     }
+
+    @Test(invocationCount = 100)
+    public void testSaveUserRole() {
+
+        int x = random.nextInt(99999);
+
+        UserDto userDto = new UserDto();
+
+        userDto.setFirstName("name" + x);
+        userDto.setLastName("lastName" + x);
+        userDto.setLogin("login" + x);
+        userDto.setPassword("password" + x);
+        userDto.setEmail("mail.@mail.com" + x);
+        if (falseOrTrue()) {
+            userDto.setPhone("777-" + random.nextInt(100) + "-" + random.nextInt(100));
+        }
+        userDto.setRole(Role.MANAGER);
+
+        if (falseOrTrue()) {
+            int amountShops = shopService.findAll().size();
+            int randomShop = random.nextInt(amountShops) + 1;
+            ShopDto shopDto = shopService.findById(randomShop);
+            userDto.setShopDto(shopDto);
+        }
+
+        userService.save(userDto);
+        Assert.assertTrue(userDto.getRole().equals(Role.MANAGER));
+    }
+
+    @Test
+    public void testRole() {
+        String admin = "ADMIN";
+        String manager = "MANAGER";
+        String user = "USER";
+        Role roleAdmin = Role.valueOf(admin);
+        Role roleManager = Role.valueOf(manager);
+        Role roleUser = Role.valueOf(user);
+        System.out.println(roleAdmin);
+        System.out.println(roleManager);
+        System.out.println(roleUser);
+    }
 }

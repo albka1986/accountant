@@ -1,7 +1,9 @@
 package ua.com.alfacell.servlet;// Created by Ponomarenko Oleh on 20.11.2016.
 
-import ua.com.alfacell.dto.StorageDto;
-import ua.com.alfacell.service.StorageService;
+import ua.com.alfacell.dto.CategoryDto;
+import ua.com.alfacell.dto.ProductDto;
+import ua.com.alfacell.service.CategoryService;
+import ua.com.alfacell.service.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +22,22 @@ public class ServletManagerStorage extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") != null) {
-            //TODO: list of all products
-            //TODO: list of all categories
-            //TODO: list of all brands
+
+            ProductService productService = new ProductService();
+            if (productService.findAll().size() != 0) {
+                List<ProductDto> productDtos = productService.findAll();
+                req.getSession().setAttribute("products", productDtos);
+            }
+
+            CategoryService categoryService = new CategoryService();
+            if (categoryService.findAll().size() != 0) {
+                List<CategoryDto> categoryDtos = categoryService.findAll();
+                req.getSession().setAttribute("categories", categoryDtos);
+            }
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/managerStorage.jsp");
             rd.forward(req, resp);
+
         } else {
             resp.sendRedirect("/login");
         }

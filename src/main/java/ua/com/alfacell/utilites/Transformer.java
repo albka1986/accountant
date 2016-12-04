@@ -143,4 +143,13 @@ public class Transformer {
 
         return shopDtos;
     }
+
+    public static List<CategoryDto> listCategoryToCategoryDto(List<Category> categories) {
+        List<CategoryDto> categoryDtos = new LinkedList<>();
+        for (Category category : categories) {
+            CategoryDto categoryDto = Transformer.categoryToCategoryDto(category);
+            categoryDtos.add(categoryDto);
+        }
+        return categoryDtos;
+    }
 }

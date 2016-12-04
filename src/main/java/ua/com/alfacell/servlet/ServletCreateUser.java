@@ -31,10 +31,17 @@ public class ServletCreateUser extends HttpServlet {
             ShopDto shopDto = new ShopService().findById(shopId);
             userDto.setShopDto(shopDto);
         }
-
-        if (req.getParameter("role").equals("ADMIN")) {
-            userDto.setRole(Role.ADMIN);
+        Role role = Role.valueOf(req.getParameter("roleNewUser"));
+        System.out.println("ROLE: " + role);
+        switch (role) {
+            case ADMIN:
+                userDto.setRole(Role.ADMIN);
+            case MANAGER:
+                userDto.setRole(Role.MANAGER);
+            case USER:
+                userDto.setRole(Role.USER);
         }
+        System.out.println(userDto);
 
         UserService userService = new UserService();
         userService.save(userDto);
