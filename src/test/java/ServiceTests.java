@@ -2,10 +2,9 @@
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.com.alfacell.dto.ShopDto;
-import ua.com.alfacell.dto.StorageDto;
-import ua.com.alfacell.dto.UserDto;
+import ua.com.alfacell.dto.*;
 import ua.com.alfacell.models.Role;
+import ua.com.alfacell.service.ProductService;
 import ua.com.alfacell.service.ShopService;
 import ua.com.alfacell.service.StorageService;
 import ua.com.alfacell.service.UserService;
@@ -19,6 +18,7 @@ public class ServiceTests {
 
     UserService userService = new UserService();
     ShopService shopService = new ShopService();
+    ProductService productService = new ProductService();
     Random random = new Random();
 
     @Test
@@ -128,5 +128,22 @@ public class ServiceTests {
         System.out.println(roleAdmin);
         System.out.println(roleManager);
         System.out.println(roleUser);
+    }
+
+    @Test
+    public void testCreateProduct() {
+
+        ProductDto productDto = null;
+        for (int i = 0; i < 10; i++) {
+            productDto = new ProductDto();
+            CategoryDto categoryDto = new CategoryDto();
+            categoryDto.setId(new Random().nextInt(2) + 1);
+            productDto.setCategoryDto(categoryDto);
+            productDto.setBrand("MyBrand");
+            productDto.setNameProduct("Model #" + i);
+            productDto.setBarcode(String.valueOf(new Random().nextInt(999999999) + "0000"));
+            System.out.println(productDto);
+            productService.save(productDto);
+        }
     }
 }

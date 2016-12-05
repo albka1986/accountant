@@ -14,7 +14,9 @@ public class CategoryService implements CrudService<CategoryDto> {
 
     @Override
     public CategoryDto findById(int id) {
-        return null;
+        Category category = new CategoryDaoImpl().findById(id);
+        CategoryDto categoryDto = Transformer.categoryToCategoryDto(category);
+        return categoryDto;
     }
 
     @Override

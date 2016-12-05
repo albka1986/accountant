@@ -80,12 +80,12 @@
             <h2>Добавить товар в базу</h2>
             <a class="close" href="#">&times;</a>
             <div class="content">
-                <form method="post" action="/saveProduct" accept-charset="UTF-8">
+                <form method="post" action="/createProduct" accept-charset="UTF-8">
                     <p>
-                        <select required>
-                            <option selected disabled>Категория...</option>
+                        <select name="categoryId">
+                            <option disabled selected>Категория...</option>
                             <c:forEach items="${categories}" var="category">
-                                <option><c:out value="${category.nameCategory}"/></option>
+                                <option value="${category.id}">${category.nameCategory}</option>
                             </c:forEach>
                         </select>
                     </p>

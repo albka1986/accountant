@@ -47,4 +47,15 @@ public class ProductDto {
     public void setCategoryDto(CategoryDto categoryDto) {
         this.categoryDto = categoryDto;
     }
+
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "id=" + id +
+                ", nameProduct='" + nameProduct + '\'' +
+                ", barcode='" + barcode + '\'' +
+                ", brand='" + brand + '\'' +
+                ", categoryDto=" + categoryDto +
+                '}';
+    }
 }

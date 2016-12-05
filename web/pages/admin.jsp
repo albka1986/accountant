@@ -123,7 +123,6 @@
                         <c:forEach items="${shops}" var="shop">
                             <option value="${shop.id}">${shop.nameShop}</option>
                         </c:forEach>
-                        <option></option>
                     </select>
                 </p>
                 <p>

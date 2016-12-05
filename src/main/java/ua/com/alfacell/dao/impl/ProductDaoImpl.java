@@ -34,6 +34,7 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
         try {
             tx = session.beginTransaction();
             session.save(product);
+            session.flush();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();

@@ -62,11 +62,12 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product:" +
-                "\nid=" + id +
-                ", \nnameProduct='" + nameProduct +
-                ", \nbarcode='" + barcode +
-                ", \nbrand='" + brand;
+        return "Product{" +
+                "id=" + id +
+                ", nameProduct='" + nameProduct + '\'' +
+                ", barcode='" + barcode + '\'' +
+                ", brand='" + brand + '\'' +
+                ", category=" + category +
+                '}';
     }
-
 }
