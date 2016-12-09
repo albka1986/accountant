@@ -75,6 +75,8 @@
 
     <a class="button" href="#popup1">Добавить товар</a>
 
+    <a class="button" href="#popup1">Удалить товар</a>
+
     <div id="popup1" class="overlay">
         <div class="popup">
             <h2>Добавить товар в базу</h2>
@@ -82,7 +84,7 @@
             <div class="content">
                 <form method="post" action="/createProduct" accept-charset="UTF-8">
                     <p>
-                        <select name="categoryId">
+                        <select name="categoryId" required>
                             <option disabled selected>Категория...</option>
                             <c:forEach items="${categories}" var="category">
                                 <option value="${category.id}">${category.nameCategory}</option>
@@ -99,6 +101,7 @@
     </div>
     <br>
     <br>
+
     <table class="table">
         <thead class="thead-inverse">
         <tr>
@@ -110,8 +113,8 @@
         </tr>
         </thead>
 
-
         <tbody>
+
         <c:forEach items="${products}" var="product">
             <tr>
                 <td><c:out value="${product.id}"></c:out></td>
@@ -119,10 +122,13 @@
                 <td><c:out value="${product.brand}"></c:out></td>
                 <td><c:out value="${product.nameProduct}"></c:out></td>
                 <td><c:out value="${product.barcode}"></c:out></td>
+                <td><input type="checkbox" value="${product.id}" name="productId"></td>
             </tr>
+
         </c:forEach>
         </tbody>
     </table>
+
     <br>
 
 

@@ -119,6 +119,8 @@ public class Listener implements ServletContextListener,
         UserDaoImpl userDao = new UserDaoImpl();
         if (userDao.findAll().size() == 0) {
             User user = new User();
+            user.setFirstName("Oleh");
+            user.setLastName("Ponomarenko");
             user.setLogin("admin");
             user.setPassword("admin");
             user.setEmail("admin@alfacell.com.ua");
@@ -131,7 +133,13 @@ public class Listener implements ServletContextListener,
         ShopDaoImpl shopDao = new ShopDaoImpl();
 
         if (shopDao.findAll().size() == 0) {
-            Shop shop = new Shop();
+            Shop shop = null;
+
+            shop = new Shop();
+            shop.setNameShop("Temporary");
+            shopDao.save(shop);
+
+            shop = new Shop();
             shop.setNameShop("Ленина");
             shopDao.save(shop);
 

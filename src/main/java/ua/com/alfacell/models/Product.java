@@ -8,10 +8,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(nullable = false)
     private String nameProduct;
+
     @Column
     private String barcode;
+
     @Column(nullable = false)
     private String brand;
     @ManyToOne

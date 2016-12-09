@@ -15,7 +15,7 @@ public class Storage {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-    @Column(name = "imei", unique = true, nullable = false)
+    @Column(name = "imei", unique = true)
     private String imei;
 
 
