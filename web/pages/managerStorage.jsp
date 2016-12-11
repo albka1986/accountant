@@ -88,28 +88,7 @@
 
 <div align="center" class="h1">Список товаров:</div>
 
-<div id="popup1" class="overlay">
-    <div class="popup">
-        <h2>Добавить товар в базу</h2>
-        <a class="close" href="#">&times;</a>
-        <div class="content">
-            <form method="post" action="/createProduct" accept-charset="UTF-8">
-                <p>
-                    <select name="categoryId" required>
-                        <option disabled selected>Категория...</option>
-                        <c:forEach items="${categories}" var="category">
-                            <option value="${category.id}">${category.nameCategory}</option>
-                        </c:forEach>
-                    </select>
-                </p>
-                <p><input type="text" name="brand" placeholder="Производитель" required/></p>
-                <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
-                <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
-                <p><input type="submit" value="Добавить" class="buttonAdd"></p>
-            </form>
-        </div>
-    </div>
-</div>
+
 <br>
 <br>
 
@@ -153,6 +132,27 @@
         </table>
     </form>
 </div>
-
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Добавить товар в базу</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form method="post" action="/createProduct" accept-charset="UTF-8">
+                <p>
+                    <select name="categoryId" required>
+                        <option disabled selected>Категория...</option>
+                        <c:forEach items="${categories}" var="category">
+                            <option value="${category.id}">${category.nameCategory}</option>
+                        </c:forEach>
+                    </select>
+                </p>
+                <p><input type="text" name="brand" placeholder="Производитель" required/></p>
+                <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
+                <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

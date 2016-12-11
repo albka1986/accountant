@@ -29,7 +29,9 @@
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="/shop${shopId}">
+            <a href="#">
+                <%--comment for having link on active shop--%>
+                <%--<a href="/shop${shopId}">--%>
                 <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
                 <%--if(shopId = null){--%>
                 Магазин # ${shopId}
