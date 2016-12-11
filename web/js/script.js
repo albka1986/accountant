@@ -1,5 +1,4 @@
 $(document).ready(function()
-
 {
     $("#myTable").tablesorter();
 }
@@ -17,4 +16,5 @@ $(document).keydown(function (e) {
         window.location.href = "#";
     }
 });
+
 

@@ -22,12 +22,35 @@
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
     <link rel="stylesheet" type="text/css" href="../css/popup.css">
+    <style>
+        #btn {
+
+            width: 150px;
+            color: whitesmoke;
+            padding: 5px;
+            border-radius: 7px/7px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            background: #0186ba linear-gradient(#04acec, #0186ba);
+        }
+
+        #btn:hover {
+            background: #3cb0fd;
+            background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        }
+
+    </style>
 </head>
 <body>
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#">
+            <a href="/shop${shopId}">
                 <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
                 Магазин #
                 ${shopId}</a>
@@ -63,75 +86,72 @@
     </ul>
 </div>
 
-<div name="products">
-    <div align="center" class="h2">Список товаров:</div>
+<div align="center" class="h1">Список товаров:</div>
 
-    <div name="search" align="middle" id="search">
-        <p>
-            <span><img src="../resources/search.svg" height="30" width="30"></span>
-            <input type="text" class="filter" name="liveFilter" placeholder="   Поиск товара в базе"/>
-        </p>
-    </div>
-
-    <a class="button" href="#popup1">Добавить товар</a>
-
-    <a class="button" href="#popup1">Удалить товар</a>
-
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>Добавить товар в базу</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-                <form method="post" action="/createProduct" accept-charset="UTF-8">
-                    <p>
-                        <select name="categoryId" required>
-                            <option disabled selected>Категория...</option>
-                            <c:forEach items="${categories}" var="category">
-                                <option value="${category.id}">${category.nameCategory}</option>
-                            </c:forEach>
-                        </select>
-                    </p>
-                    <p><input type="text" name="brand" placeholder="Производитель" required/></p>
-                    <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
-                    <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
-                    <p><input type="submit" value="Добавить" class="buttonAdd"></p>
-                </form>
-            </div>
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Добавить товар в базу</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form method="post" action="/createProduct" accept-charset="UTF-8">
+                <p>
+                    <select name="categoryId" required>
+                        <option disabled selected>Категория...</option>
+                        <c:forEach items="${categories}" var="category">
+                            <option value="${category.id}">${category.nameCategory}</option>
+                        </c:forEach>
+                    </select>
+                </p>
+                <p><input type="text" name="brand" placeholder="Производитель" required/></p>
+                <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
+                <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+            </form>
         </div>
     </div>
-    <br>
-    <br>
+</div>
+<br>
+<br>
 
-    <table class="table">
-        <thead class="thead-inverse">
-        <tr>
-            <th>#</th>
-            <th>Категория</th>
-            <th>Производитель</th>
-            <th>Модель</th>
-            <th>Штрих-код</th>
-        </tr>
-        </thead>
+<div name="search" align="middle" id="search">
+    <p>
+        <span><img src="../resources/search.svg" height="30" width="30"></span>
+        <input class="filter" name="livefilter" type="text" value=""/>
+    </p>
 
-        <tbody>
 
-        <c:forEach items="${products}" var="product">
+    <form action="/ServletDeleteProduct" method="post">
+        <a class="button" href="#popup1">Добавить товар</a>
+        <button id="btn" type="submit">Удалить</button>
+
+        <%--<table class="table" id="myTable">--%>
+        <table class="table_blur" id="myTable">
+            <thead>
             <tr>
-                <td><c:out value="${product.id}"></c:out></td>
-                <td><c:out value="${product.categoryDto.nameCategory}"></c:out></td>
-                <td><c:out value="${product.brand}"></c:out></td>
-                <td><c:out value="${product.nameProduct}"></c:out></td>
-                <td><c:out value="${product.barcode}"></c:out></td>
-                <td><input type="checkbox" value="${product.id}" name="productId"></td>
+                <th>#</th>
+                <th>Категория</th>
+                <th>Производитель</th>
+                <th>Модель</th>
+                <th>Штрих-код</th>
+                <th>Выбрать</th>
             </tr>
+            </thead>
 
-        </c:forEach>
-        </tbody>
-    </table>
+            <tbody>
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td><c:out value="${product.id}"></c:out></td>
+                    <td><c:out value="${product.categoryDto.nameCategory}"></c:out></td>
+                    <td><c:out value="${product.brand}"></c:out></td>
+                    <td><c:out value="${product.nameProduct}"></c:out></td>
+                    <td><c:out value="${product.barcode}"></c:out></td>
+                    <td><input type="checkbox" name="productsListDelete" value="${product.id}"></td>
+                </tr>
+            </c:forEach>
 
-    <br>
-
-
+            </tbody>
+        </table>
+    </form>
 </div>
 
 </body>

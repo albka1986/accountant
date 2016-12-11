@@ -12,7 +12,10 @@ import java.util.List;
 public class ProductService implements CrudService<ProductDto> {
     @Override
     public ProductDto findById(int id) {
-        return null;
+        ProductDaoImpl productDao = new ProductDaoImpl();
+        Product product = productDao.findById(id);
+        ProductDto productDto = Transformer.productToProductDto(product);
+        return productDto;
     }
 
     @Override
@@ -36,6 +39,16 @@ public class ProductService implements CrudService<ProductDto> {
 
     @Override
     public void delete(ProductDto productDto) {
+        ProductDaoImpl productDao = new ProductDaoImpl();
+        Product product = Transformer.productDtoToProduct(productDto);
+        productDao.delete(product);
+    }
 
+    public void deleteProductList(List<ProductDto> productDtos) {
+        ProductDaoImpl productDao = new ProductDaoImpl();
+        for (ProductDto productDto : productDtos) {
+            Product product = Transformer.productDtoToProduct(productDto);
+            productDao.delete(product);
+        }
     }
 }

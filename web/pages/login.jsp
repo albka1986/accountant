@@ -2,16 +2,18 @@
 <html>
 
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>Accountant: login</title>
     <link rel="icon" href="../resources/favicon.ico">
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="../css/login.css" rel="stylesheet">
 </head>
 
 <body>
+
 
 <div class="logo" align="center">
     <img src="../resources/logo.png" alt="ALFACELL" height="102" width="348"></div>

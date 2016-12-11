@@ -5,7 +5,7 @@
 
 BODY {
     /*background-image: url("https://pp.vk.me/c637426/v637426004/ba19/QjBAuMJdIBY.jpg");*/
-    background-image: url("../resources/background.png");
+    background-image: url("../resources/bg.png");
     background-size: cover;
 }
 
@@ -13,6 +13,10 @@ BODY {
     background: #f5ffff;
     border-collapse: collapse;
     text-align: left;
+}
+
+.table_blur input {
+    width: 100%;
 }
 
 .table_blur th {
@@ -101,3 +105,4 @@ BODY {
     background: #0186ba linear-gradient(#04acec, #0186ba);
     color: white;
 }
+

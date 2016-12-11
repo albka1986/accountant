@@ -22,16 +22,21 @@
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
 
+
 </head>
 <body>
 
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="#">
+            <a href="/shop${shopId}">
                 <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
-                Магазин #
-                ${shopId}</a>
+                <%--if(shopId = null){--%>
+                Магазин # ${shopId}
+                <%--}else{--%>
+                <%--Все магазины--%>
+                <%--}--%>
+            </a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
                 <li><a href="/shop1">Магазин #1(Ленина)</a></li>
@@ -65,32 +70,34 @@
 </div>
 
 <div name="search" align="middle" id="search">
-        <p>
-            <span><img src="../resources/search.svg" height="30" width="30"></span>
-            <input type="text" class="filter" name="liveFilter" placeholder="   Поиск товара по магазину"/>
-        </p>
+    <p>
+        <span><img src="../resources/search.svg" height="30" width="30"></span>
+        <input type="text" class="filter" name="liveFilter" placeholder="   Поиск товара по магазину"/>
+    </p>
 
-    <table class="table_blur">
-            <thead>
+
+    <table class="table_blur tablesorter" id="myTable">
+        <thead>
+        <tr>
+            <th>Категория</th>
+            <th>Производитель</th>
+            <th>Модель</th>
+            <th>Количество</th>
+        </tr>
+        </thead>
+
+        <tbody id="">
+        <c:forEach items="${storageList}" var="storage">
             <tr>
-                <th>Категория</th>
-                <th>Производитель</th>
-                <th>Модель</th>
-                <th>Количество</th>
+                <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
+                <td><c:out value="${storage.productDto.brand}"> </c:out></td>
+                <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
+                <td>4</td>
             </tr>
-            </thead>
-            <tbody>
-
-            <c:forEach items="${storageList}" var="storage">
-                <tr>
-                    <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
-                    <td><c:out value="${storage.productDto.brand}"> </c:out></td>
-                    <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
 
