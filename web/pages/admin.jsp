@@ -66,43 +66,48 @@
 
 <div align="center" class="h2">Список пользователей:</div>
 
-<table class="table">
-    <thead class="thead-inverse">
-    <tr>
-        <th>#</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Логин</th>
-        <th>Пароль</th>
-        <th>Email</th>
-        <th>Телефон</th>
-        <th>№ магазина</th>
-        <th>Роль</th>
-        <th>Выбрать</th>
-    </tr>
-    </thead>
 
-
-    <tbody>
-    <c:forEach items="${users}" var="user">
+<div align="center">
+    <br>
+    <br>
+    <a class="button" href="#popup1">Добавить пользователя</a>
+    <br>
+    <br>
+    <table class="table_blur" id="myTable">
+        <thead class="thead-inverse">
         <tr>
-            <td><c:out value="${user.id}"></c:out></td>
-            <td><c:out value="${user.firstName}"></c:out></td>
-            <td><c:out value="${user.lastName}"></c:out></td>
-            <td><c:out value="${user.login}"></c:out></td>
-            <td><c:out value="${user.password}"></c:out></td>
-            <td><c:out value="${user.email}"></c:out></td>
-            <td><c:out value="${user.phone}"></c:out></td>
-            <td><c:out value="${user.shopDto.id}"></c:out></td>
-            <td><c:out value="${user.role}"></c:out></td>
-            <td><c:out value=""><input type="radio"></c:out></td>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>№ магазина</th>
+            <th>Роль</th>
+            <th>Выбрать</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
 
 
-<a class="button" href="#popup1">Добавить пользователя</a>
+        <tbody>
+        <c:forEach items="${users}" var="user">
+            <tr>
+                <td><c:out value="${user.id}"></c:out></td>
+                <td><c:out value="${user.firstName}"></c:out></td>
+                <td><c:out value="${user.lastName}"></c:out></td>
+                <td><c:out value="${user.login}"></c:out></td>
+                <td><c:out value="${user.password}"></c:out></td>
+                <td><c:out value="${user.email}"></c:out></td>
+                <td><c:out value="${user.phone}"></c:out></td>
+                <td><c:out value="${user.shopDto.id}"></c:out></td>
+                <td><c:out value="${user.role}"></c:out></td>
+                <td><c:out value=""><input type="radio"></c:out></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 
 
 <div id="popup1" class="overlay">
