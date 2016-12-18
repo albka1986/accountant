@@ -61,7 +61,7 @@ public class ServiceTests {
         Assert.assertNotNull(userDtos);
     }
 
-    @Test(invocationCount = 100)
+    @Test(invocationCount = 1)
     public void testSaveUserRandom() {
 
         int x = random.nextInt(99999);
@@ -73,7 +73,7 @@ public class ServiceTests {
         userDto.setLogin("login" + x);
         userDto.setPassword("password" + x);
         userDto.setEmail("mail.@mail.com" + x);
-        if (falseOrTrue()) {
+        if (true) {
             userDto.setPhone("777-" + random.nextInt(100) + "-" + random.nextInt(100));
         }
         if (falseOrTrue()) {

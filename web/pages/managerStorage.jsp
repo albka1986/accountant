@@ -22,29 +22,6 @@
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
     <link rel="stylesheet" type="text/css" href="../css/popup.css">
-    <style>
-        #btn {
-
-            width: 150px;
-            color: whitesmoke;
-            padding: 5px;
-            border-radius: 7px/7px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease-out;
-            background: #0186ba linear-gradient(#04acec, #0186ba);
-        }
-
-        #btn:hover {
-            background: #3cb0fd;
-            background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-            background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-            background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-            background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-            background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-        }
-
-    </style>
 </head>
 <body>
 <div name="topmenu" align="center">
@@ -88,20 +65,17 @@
 
 <div align="center" class="h1">Список товаров:</div>
 
-
-<br>
-<br>
-
 <div name="search" align="middle" id="search">
     <p>
         <span><img src="../resources/search.svg" height="30" width="30"></span>
         <input class="filter" name="livefilter" type="text" value=""/>
     </p>
 
-
     <form action="/ServletDeleteProduct" method="post">
-        <a class="button" href="#popup1">Добавить товар</a>
-        <button id="btn" type="submit">Удалить</button>
+        <a href="#addCategory"><img src="../resources/icons/addCategory.png"></a>
+        <a href="#addProduct"><img src="../resources/icons/add.png"></a>
+        <a href="#editProduct"><img src="../resources/icons/edit.png"></a>
+        <button id="deleteProduct" type="submit"><img src="../resources/icons/del.png"></button>
 
         <%--<table class="table" id="myTable">--%>
         <table class="table_blur" id="myTable">
@@ -132,15 +106,15 @@
         </table>
     </form>
 </div>
-<div id="popup1" class="overlay">
+<div id="addProduct" class="overlay">
     <div class="popup">
         <h2>Добавить товар в базу</h2>
         <a class="close" href="#">&times;</a>
         <div class="content">
             <form method="post" action="/createProduct" accept-charset="UTF-8">
                 <p>
-                    <select name="categoryId" required>
-                        <option disabled selected>Категория...</option>
+                    <select name="categoryId" required="true">
+                        <option selected disabled value=''>Категория...</option>
                         <c:forEach items="${categories}" var="category">
                             <option value="${category.id}">${category.nameCategory}</option>
                         </c:forEach>

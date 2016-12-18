@@ -19,7 +19,6 @@ public class ServletCreateProduct extends HttpServlet {
             req.setCharacterEncoding("UTF-8");
             ProductService productService = new ProductService();
             int categoryId = Integer.parseInt(req.getParameter("categoryId"));
-            System.out.println(categoryId);
             String brand = req.getParameter("brand");
             String nameProduct = req.getParameter("nameProduct");
             String barcode = req.getParameter("barcode");
@@ -33,7 +32,6 @@ public class ServletCreateProduct extends HttpServlet {
             CategoryDto categoryDto = categoryService.findById(categoryId);
             productDto.setCategoryDto(categoryDto);
 
-            System.out.println(productDto);
             productService.save(productDto);
 
             resp.sendRedirect("/managerStorage");
