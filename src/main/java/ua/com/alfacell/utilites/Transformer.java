@@ -35,7 +35,6 @@ public class Transformer {
 
     public static ProductDto productToProductDto(Product product) {
         ProductDto productDto = new ProductDto();
-
         productDto.setId(product.getId());
         productDto.setBarcode(product.getBarcode());
         if (product.getCategory() != null) {

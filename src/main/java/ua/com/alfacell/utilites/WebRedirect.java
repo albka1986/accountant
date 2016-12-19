@@ -2,7 +2,9 @@ package ua.com.alfacell.utilites;
 
 // Created by Ponomarenko Oleh on 07.11.2016.
 
+import ua.com.alfacell.dto.ShopDto;
 import ua.com.alfacell.dto.StorageDto;
+import ua.com.alfacell.service.ShopService;
 import ua.com.alfacell.service.StorageService;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +21,8 @@ public class WebRedirect extends HttpServlet {
             List<StorageDto> storageList = new StorageService().findProductsByShopId(shopId);
             req.getSession().setAttribute("storageList", storageList);
             req.getSession().setAttribute("shopId", shopId);
+            List<ShopDto> shops = new ShopService().findAll();
+            req.getSession().setAttribute("shops", shops);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/shopCommon.jsp");
             rd.forward(req, resp);
         } else {

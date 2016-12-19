@@ -136,6 +136,10 @@ public class Listener implements ServletContextListener,
             Shop shop = null;
 
             shop = new Shop();
+            shop.setNameShop("Склад");
+            shopDao.save(shop);
+
+            shop = new Shop();
             shop.setNameShop("Ленина");
             shopDao.save(shop);
 
@@ -159,9 +163,7 @@ public class Listener implements ServletContextListener,
             shop.setNameShop("Петровского");
             shopDao.save(shop);
 
-            shop = new Shop();
-            shop.setNameShop("Александр");
-            shopDao.save(shop);
+
         }
     }
 

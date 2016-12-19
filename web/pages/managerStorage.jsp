@@ -66,10 +66,9 @@
 <div align="center" class="h1">Список товаров:</div>
 
 <div name="search" align="middle" id="search">
-    <p>
-        <span><img src="../resources/search.svg" height="30" width="30"></span>
-        <input class="filter" name="livefilter" type="text" value="" placeholder="   Поиск..."/>
-    </p>
+    <p><span><img src="../resources/search.svg" height="30" width="30"></span><input class="filter" name="livefilter"
+                                                                                     type="text" value=""
+                                                                                     placeholder="   Поиск..."/></p>
 
     <form action="/ServletDeleteProduct" method="post">
         <a href="#addCategory"><img src="../resources/icons/addCategory.png"></a>
@@ -121,6 +120,28 @@
 <div id="addProduct" class="overlay">
     <div class="popup">
         <h2>Добавить товар в базу</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form method="post" action="/createProduct" accept-charset="UTF-8">
+                <p>
+                    <select name="categoryId" required="true">
+                        <option selected disabled value=''>Категория...</option>
+                        <c:forEach items="${categories}" var="category">
+                            <option value="${category.id}">${category.nameCategory}</option>
+                        </c:forEach>
+                    </select>
+                </p>
+                <p><input type="text" name="brand" placeholder="Производитель" required/></p>
+                <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
+                <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
+                <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="updateProduct" class="overlay">
+    <div class="popup">
+        <h2>Редактировать това</h2>
         <a class="close" href="#">&times;</a>
         <div class="content">
             <form method="post" action="/createProduct" accept-charset="UTF-8">

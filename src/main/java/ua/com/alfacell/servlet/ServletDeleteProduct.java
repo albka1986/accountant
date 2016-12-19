@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,8 +26,10 @@ public class ServletDeleteProduct extends HttpServlet {
                 productDtos.add(productDto);
             }
             productService.deleteProductList(productDtos);
-
-
+            if (productService.findAll().size() == 0) {
+                HttpSession session = req.getSession(false);
+                session.removeAttribute("products");
+            }
             resp.sendRedirect("/managerStorage");
         } else {
             resp.sendRedirect("/managerStorage");
