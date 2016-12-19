@@ -127,9 +127,11 @@ public class Transformer {
         return product;
     }
 
-    private static Category categoryDtoToCategory(CategoryDto categoryDto) {
+    public static Category categoryDtoToCategory(CategoryDto categoryDto) {
         Category category = new Category();
-        category.setId(categoryDto.getId());
+        if (categoryDto.getId() != null) {
+            category.setId(categoryDto.getId());
+        }
         category.setNameCategory(categoryDto.getNameCategory());
         return category;
     }

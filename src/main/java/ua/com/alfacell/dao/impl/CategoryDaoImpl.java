@@ -36,6 +36,7 @@ public class CategoryDaoImpl extends BaseDao implements CrudDao<Category> {
         try {
             tx = session.beginTransaction();
             session.save(category);
+            session.flush();
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();

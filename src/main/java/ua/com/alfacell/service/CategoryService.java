@@ -28,7 +28,9 @@ public class CategoryService implements CrudService<CategoryDto> {
 
     @Override
     public void save(CategoryDto categoryDto) {
-
+        Category category = Transformer.categoryDtoToCategory(categoryDto);
+        CategoryDaoImpl categoryDao = new CategoryDaoImpl();
+        categoryDao.save(category);
     }
 
     @Override

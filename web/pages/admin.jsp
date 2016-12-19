@@ -64,55 +64,60 @@
 </div>
 
 
-<div align="center" class="h2">Список пользователей:</div>
+<div align="center" class="h1">Список пользователей:</div>
 
+<div name="search" align="middle" id="search">
+    <p>
+        <span><img src="../resources/search.svg" height="30" width="30"></span>
+        <input class="filter" name="livefilter" type="text" value="" placeholder="   Поиск..."/>
+    </p>
 
-<div align="center">
-    <br>
-    <br>
-    <a class="button" href="#popup1">Добавить пользователя</a>
-    <br>
-    <br>
-    <table class="table_blur" id="myTable">
-        <thead class="thead-inverse">
-        <tr>
-            <th>#</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Логин</th>
-            <th>Пароль</th>
-            <th>Email</th>
-            <th>Телефон</th>
-            <th>№ магазина</th>
-            <th>Роль</th>
-            <th>Выбрать</th>
-        </tr>
-        </thead>
+    <form action="/ServletDeleteUser" method="post">
+        <a href="#createUser"><img src="../resources/icons/add.png"></a>
+        <a href="#editUser"><img src="../resources/icons/edit.png"></a>
+        <button id="deleteButton" type="submit"><img src="../resources/icons/del.png"></button>
 
-
-        <tbody>
-        <c:forEach items="${users}" var="user">
+        <table class="table_blur" id="myTable">
+            <thead class="thead-inverse">
             <tr>
-                <td><c:out value="${user.id}"></c:out></td>
-                <td><c:out value="${user.firstName}"></c:out></td>
-                <td><c:out value="${user.lastName}"></c:out></td>
-                <td><c:out value="${user.login}"></c:out></td>
-                <td><c:out value="${user.password}"></c:out></td>
-                <td><c:out value="${user.email}"></c:out></td>
-                <td><c:out value="${user.phone}"></c:out></td>
-                <td><c:out value="${user.shopDto.id}"></c:out></td>
-                <td><c:out value="${user.role}"></c:out></td>
-                <td><c:out value=""><input type="radio"></c:out></td>
+                <th>#</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Логин</th>
+                <th>Пароль</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>№ магазина</th>
+                <th>Роль</th>
+                <th>Выбрать</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+            <c:forEach items="${users}" var="user">
+                <tr>
+                    <td><c:out value="${user.id}"></c:out></td>
+                    <td><c:out value="${user.firstName}"></c:out></td>
+                    <td><c:out value="${user.lastName}"></c:out></td>
+                    <td><c:out value="${user.login}"></c:out></td>
+                    <td><c:out value="${user.password}"></c:out></td>
+                    <td><c:out value="${user.email}"></c:out></td>
+                    <td><c:out value="${user.phone}"></c:out></td>
+                    <td><c:out value="${user.shopDto.id}"></c:out></td>
+                    <td><c:out value="${user.role}"></c:out></td>
+                    <td><input type="checkbox" name="userListDelete" value="${user.id}"></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </form>
 </div>
 
 
-<div id="popup1" class="overlay">
+<div id="createUser" class="overlay">
     <div class="popup">
         <h2>Создать нового пользователя</h2>
+
         <a class="close" href="#">&times;</a>
         <div class="content">
             <form method="post" action="/createUser" accept-charset="UTF-8">

@@ -4,7 +4,6 @@
 }
 
 BODY {
-    /*background-image: url("https://pp.vk.me/c637426/v637426004/ba19/QjBAuMJdIBY.jpg");*/
     background-image: url("../resources/bg.png");
     background-size: cover;
 }
@@ -17,6 +16,7 @@ BODY {
 }
 
 .table_blur input {
+    transform: scale(0.7);
     width: 100%;
 }
 
@@ -56,20 +56,16 @@ BODY {
 .table_blur th:last-child {
     border-right: 1px solid #777777;
     border-bottom: 1px solid #777777;
-    /*box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;*/
 }
 
 .table_blur td {
     border: 1px solid #e3eef7;
     padding: 10px 15px;
     position: relative;
-    /*transition: all 0.5s ease;*/
 }
 
 .table_blur tbody:hover td {
-    /*color: transparent;*/
     text-shadow: none;
-
 }
 
 .table_blur tr:hover {
@@ -101,7 +97,7 @@ BODY {
     color: white;
 }
 
-#deleteProduct {
+#deleteButton {
     background-color: transparent;
     border: none;
     width: inherit;

@@ -68,14 +68,14 @@
 <div name="search" align="middle" id="search">
     <p>
         <span><img src="../resources/search.svg" height="30" width="30"></span>
-        <input class="filter" name="livefilter" type="text" value=""/>
+        <input class="filter" name="livefilter" type="text" value="" placeholder="   Поиск..."/>
     </p>
 
     <form action="/ServletDeleteProduct" method="post">
         <a href="#addCategory"><img src="../resources/icons/addCategory.png"></a>
         <a href="#addProduct"><img src="../resources/icons/add.png"></a>
         <a href="#editProduct"><img src="../resources/icons/edit.png"></a>
-        <button id="deleteProduct" type="submit"><img src="../resources/icons/del.png"></button>
+        <button id="deleteButton" type="submit"><img src="../resources/icons/del.png"></button>
 
         <%--<table class="table" id="myTable">--%>
         <table class="table_blur" id="myTable">
@@ -105,6 +105,18 @@
             </tbody>
         </table>
     </form>
+</div>
+<div id="addCategory" class="overlay">
+    <div class="popup">
+        <h2>Добавить категорию</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form method="post" action="/createCategory" accept-charset="UTF-8">
+                <p><input type="text" name="nameCategory" placeholder="Введите название категории..." required/></p>
+                <p><input type="submit" value="Добавить" class="buttonAdd"></p>
+            </form>
+        </div>
+    </div>
 </div>
 <div id="addProduct" class="overlay">
     <div class="popup">

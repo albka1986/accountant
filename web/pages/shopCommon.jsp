@@ -21,8 +21,6 @@
     <script src="../libs/jquery.liveFilter.js"></script>
     <%--top menu--%>
     <link rel="stylesheet" type="text/css" href="../css/topmenu.css">
-
-
 </head>
 <body>
 
@@ -70,6 +68,7 @@
             Выход</a></li>
     </ul>
 </div>
+<center><h1>Магазин #${shopId}</h1></center>
 
 <div name="search" align="middle" id="search">
     <p>
