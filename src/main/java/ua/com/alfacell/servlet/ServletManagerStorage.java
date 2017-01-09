@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @WebServlet("/managerStorage")
@@ -31,7 +33,13 @@ public class ServletManagerStorage extends HttpServlet {
 
             CategoryService categoryService = new CategoryService();
             if (categoryService.findAll().size() != 0) {
-                List<CategoryDto> categoryDtos = categoryService.findAll();
+                List<CategoryDto> categoryDtos = new CategoryService().findAll();
+                Collections.sort(categoryDtos, new Comparator<CategoryDto>() {
+                    @Override
+                    public int compare(CategoryDto o1, CategoryDto o2) {
+                        return o1.getNameCategory().compareTo(o2.getNameCategory().toString());
+                    }
+                });
                 req.getSession().setAttribute("categories", categoryDtos);
             }
 
