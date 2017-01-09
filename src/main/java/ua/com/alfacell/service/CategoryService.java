@@ -40,6 +40,17 @@ public class CategoryService implements CrudService<CategoryDto> {
 
     @Override
     public void delete(CategoryDto categoryDto) {
+        Category category = Transformer.categoryDtoToCategory(categoryDto);
+        categoryDao.delete(category);
+    }
 
+    public boolean nameCategoryExists(String name) {
+        return categoryDao.nameCategoryExists(name);
+    }
+
+    public CategoryDto findByName(String nameCategory) {
+        Category category = new CategoryDaoImpl().findByName(nameCategory);
+        CategoryDto categoryDto = Transformer.categoryToCategoryDto(category);
+        return categoryDto;
     }
 }

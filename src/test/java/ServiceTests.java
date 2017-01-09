@@ -4,10 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.com.alfacell.dto.*;
 import ua.com.alfacell.models.Role;
-import ua.com.alfacell.service.ProductService;
-import ua.com.alfacell.service.ShopService;
-import ua.com.alfacell.service.StorageService;
-import ua.com.alfacell.service.UserService;
+import ua.com.alfacell.service.*;
 
 import java.util.List;
 import java.util.Random;
@@ -146,4 +143,25 @@ public class ServiceTests {
             productService.save(productDto);
         }
     }
+
+    @Test(invocationCount = 10)
+    public void testFindCategoryByNameBool() {
+        System.out.println("Enter");
+        CategoryService categoryService = new CategoryService();
+        String testNameCategory = "asdasaq21asda";
+
+        boolean result = categoryService.nameCategoryExists(testNameCategory);
+        System.out.println(result);
+        Assert.assertFalse(result);
+
+        CategoryDto category = new CategoryDto();
+        category.setNameCategory(testNameCategory);
+        categoryService.save(category);
+
+        result = categoryService.nameCategoryExists(testNameCategory);
+        Assert.assertTrue(result);
+        categoryService.delete(categoryService.findByName(testNameCategory));
+        System.out.println("Exit");
+    }
+
 }

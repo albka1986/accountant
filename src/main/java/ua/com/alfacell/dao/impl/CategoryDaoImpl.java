@@ -77,4 +77,21 @@ public class CategoryDaoImpl extends BaseDao implements CrudDao<Category> {
             session.close();
         }
     }
+
+    public boolean nameCategoryExists(String name) {
+        Session session = getActiveSession();
+        List<Category> categories = session.createCriteria(Category.class).list();
+        for (Category category : categories) {
+            if (category.getNameCategory().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Category findByName(String nameCategory) {
+        Category category = (Category) getActiveSession().createCriteria(Category.class)
+                .add(Restrictions.eq("nameCategory", nameCategory));
+        return category;
+    }
 }
