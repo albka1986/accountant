@@ -2,9 +2,10 @@
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.com.alfacell.dao.impl.ProductDaoImpl;
+import ua.com.alfacell.dao.impl.StorageDaoImpl;
 import ua.com.alfacell.dto.ProductDto;
 import ua.com.alfacell.dto.ShopDto;
+import ua.com.alfacell.dto.StorageDto;
 import ua.com.alfacell.dto.UserDto;
 import ua.com.alfacell.models.*;
 import ua.com.alfacell.utilites.Transformer;
@@ -43,7 +44,6 @@ public class TestTransformer {
     @Test
     public void testListProductToProductDto() {
         List<Product> products = new LinkedList<>();
-        ProductDaoImpl productDao = new ProductDaoImpl();
 
         Product product = new Product();
         product.setId(1);
@@ -53,6 +53,7 @@ public class TestTransformer {
         category.setId(1);
         category.setNameCategory("Телефоны");
         product.setCategory(category);
+        product.setDescription("Some description...");
         products.add(product);
 
         product = new Product();
@@ -74,5 +75,36 @@ public class TestTransformer {
 
     }
 
+
+    @Test
+    public void testListStorageToListStorageDto() {
+        List<Storage> storageList = new LinkedList<>();
+        Storage storage = new StorageDaoImpl().findById(1);
+        Storage storage2 = new StorageDaoImpl().findById(2);
+        storageList.add(storage);
+        storageList.add(storage2);
+        List<StorageDto> storageDtos = Transformer.listStorageToListStorageDto(storageList);
+        Assert.assertNotNull(storageDtos);
+        System.out.println(storageDtos);
+    }
+
+    @Test
+    public void testStorageToStorageDto() {
+        Storage storage = new StorageDaoImpl().findById(1);
+        StorageDto storageDto = Transformer.storageToStorageDto(storage);
+        Assert.assertNotNull(storageDto);
+    }
+
+    @Test
+    public void testProductDtoToProduct() {
+        ProductDto productDto = new ProductDto();
+        productDto.setBrand("Nokia");
+        productDto.setNameProduct("3310");
+        productDto.setBarcode("1323123123");
+        productDto.setDescription("Some description...");
+
+        Product product = Transformer.productDtoToProduct(productDto);
+        Assert.assertNotNull(product);
+    }
 
 }

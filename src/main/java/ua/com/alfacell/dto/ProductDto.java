@@ -5,6 +5,7 @@ public class ProductDto {
     private String nameProduct;
     private String barcode;
     private String brand;
+    private String description;
     private CategoryDto categoryDto;
 
     public Integer getId() {
@@ -40,6 +41,14 @@ public class ProductDto {
     }
 
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public CategoryDto getCategoryDto() {
         return categoryDto;
     }
@@ -48,6 +57,7 @@ public class ProductDto {
         this.categoryDto = categoryDto;
     }
 
+
     @Override
     public String toString() {
         return "ProductDto{" +
@@ -55,6 +65,7 @@ public class ProductDto {
                 ", nameProduct='" + nameProduct + '\'' +
                 ", barcode='" + barcode + '\'' +
                 ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
                 ", categoryDto=" + categoryDto +
                 '}';
     }

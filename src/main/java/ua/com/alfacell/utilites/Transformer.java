@@ -42,6 +42,7 @@ public class Transformer {
         }
         productDto.setNameProduct(product.getNameProduct());
         productDto.setBrand(product.getBrand());
+        productDto.setDescription(product.getDescription());
 
         return productDto;
     }
@@ -123,6 +124,7 @@ public class Transformer {
         if (productDto.getCategoryDto() != null) {
             product.setCategory(categoryDtoToCategory(productDto.getCategoryDto()));
         }
+        product.setDescription(productDto.getDescription());
         return product;
     }
 

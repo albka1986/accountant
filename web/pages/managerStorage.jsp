@@ -27,22 +27,21 @@
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
-            <a href="/shop${shopId}">
+            <a href="#">
                 <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
-                Магазин #
-                ${shopId}</a>
+                Магазин
+            </a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
-                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
-                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
-                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
-                <li><a href="/shop4">Магазин #4(Французский булвьар)</a></li>
-                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
-                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
-                <li><a href="#">Магазин Александр</a></li>
+                <li><a href="/shop2">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop3">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop4">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop5">Магазин #4(Французский бульвар)</a></li>
+                <li><a href="/shop6">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop7">Магазин #6(Петровского)</a></li>
             </ul>
         </li>
-        <li><a href="#">
+        <li><a href=" #">
             <img src="../resources/icons/sales.svg" height="16px" width="16px">Продажи</img>
         </a></li>
         <li><a href="#">
@@ -73,7 +72,7 @@
     <form action="/ServletDeleteProduct" method="post">
         <a href="#addCategory"><img src="../resources/icons/addCategory.png"></a>
         <a href="#addProduct"><img src="../resources/icons/add.png"></a>
-        <a href="#editProduct"><img src="../resources/icons/edit.png"></a>
+        <button id="deleteButton" formaction="#"><img src="../resources/icons/edit.png"></button>
         <button id="deleteButton" type="submit"><img src="../resources/icons/del.png"></button>
 
         <%--<table class="table" id="myTable">--%>
@@ -85,6 +84,7 @@
                 <th>Производитель</th>
                 <th>Модель</th>
                 <th>Штрих-код</th>
+                <th>Описание</th>
                 <th>Выбрать</th>
             </tr>
             </thead>
@@ -97,6 +97,7 @@
                     <td><c:out value="${product.brand}"></c:out></td>
                     <td><c:out value="${product.nameProduct}"></c:out></td>
                     <td><c:out value="${product.barcode}"></c:out></td>
+                    <td><c:out value="${product.description}"></c:out></td>
                     <td><input type="checkbox" name="productsListDelete" value="${product.id}"></td>
                 </tr>
             </c:forEach>
@@ -107,7 +108,7 @@
 </div>
 <div id="addCategory" class="overlay">
     <div class="popup">
-        <h2>Добавить категорию</h2>
+        <h2>Добавить категорию </h2>
         <a class="close" href="#">&times;</a>
         <div class="content">
             <form method="post" action="/createCategory" accept-charset="UTF-8">
@@ -133,6 +134,7 @@
                 </p>
                 <p><input type="text" name="brand" placeholder="Производитель" required/></p>
                 <p><input type="text" name="nameProduct" placeholder="Модель" required/></p>
+                <p><input type="text" name="description" placeholder="Описание" required/></p>
                 <p><input type="text" name="barcode" placeholder="Штрих-код"/></p>
                 <p><input type="submit" value="Добавить" class="buttonAdd"></p>
             </form>

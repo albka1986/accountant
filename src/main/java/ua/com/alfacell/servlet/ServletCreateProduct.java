@@ -22,11 +22,13 @@ public class ServletCreateProduct extends HttpServlet {
             String brand = req.getParameter("brand");
             String nameProduct = req.getParameter("nameProduct");
             String barcode = req.getParameter("barcode");
+            String description = req.getParameter("description");
 
             ProductDto productDto = new ProductDto();
             productDto.setBrand(brand);
             productDto.setNameProduct(nameProduct);
             productDto.setBarcode(barcode);
+            productDto.setDescription(description);
 
             CategoryService categoryService = new CategoryService();
             CategoryDto categoryDto = categoryService.findById(categoryId);

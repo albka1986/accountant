@@ -10,7 +10,6 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>4.2.6.RELEASE</spring.version>
         <hibernateVersion>5.1.0.Final</hibernateVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -55,6 +54,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <!--<scope>runtime</scope>-->
         </dependency>
 
         <dependency>

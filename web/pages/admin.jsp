@@ -24,25 +24,25 @@
     <link rel="stylesheet" type="text/css" href="../css/popup.css">
 </head>
 <body>
+
 <div name="topmenu" align="center">
     <ul id="menu">
         <li>
             <a href="#">
                 <img src="../resources/icons/home.svg" height="16px" width="16px"></img>
-                Магазин #
-                ${shopId}</a>
+                Магазин
+            </a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
-                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
-                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
-                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
-                <li><a href="/shop4">Магазин #4(Французский булвьар)</a></li>
-                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
-                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
-                <li><a href="#">Магазин Александр</a></li>
+                <li><a href="/shop2">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop3">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop4">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop5">Магазин #4(Французский бульвар)</a></li>
+                <li><a href="/shop6">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop7">Магазин #6(Петровского)</a></li>
             </ul>
         </li>
-        <li><a href="#">
+        <li><a href=" #">
             <img src="../resources/icons/sales.svg" height="16px" width="16px">Продажи</img>
         </a></li>
         <li><a href="#">
@@ -62,7 +62,6 @@
             Выход</a></li>
     </ul>
 </div>
-
 
 <div align="center" class="h1">Список пользователей:</div>
 
@@ -113,7 +112,6 @@
     </form>
 </div>
 
-
 <div id="createUser" class="overlay">
     <div class="popup">
         <h2>Создать нового пользователя</h2>
@@ -149,7 +147,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

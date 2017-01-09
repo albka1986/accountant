@@ -17,6 +17,10 @@ public class Product {
 
     @Column(nullable = false)
     private String brand;
+
+    @Column
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
@@ -54,6 +58,13 @@ public class Product {
         this.brand = brand;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Category getCategory() {
         return category;
@@ -70,6 +81,7 @@ public class Product {
                 ", nameProduct='" + nameProduct + '\'' +
                 ", barcode='" + barcode + '\'' +
                 ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
                 ", category=" + category +
                 '}';
     }
