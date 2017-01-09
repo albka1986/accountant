@@ -33,12 +33,12 @@
             </a>
             <ul>
                 <li><a href="/allShops">Все магазины</a></li>
-                <li><a href="/shop2">Магазин #1(Ленина)</a></li>
-                <li><a href="/shop3">Магазин #2(Университетская)</a></li>
-                <li><a href="/shop4">Магазин #3(Алексеевка)</a></li>
-                <li><a href="/shop5">Магазин #4(Французский бульвар)</a></li>
-                <li><a href="/shop6">Магазин #5(пл. Свободы)</a></li>
-                <li><a href="/shop7">Магазин #6(Петровского)</a></li>
+                <li><a href="/shop1">Магазин #1(Ленина)</a></li>
+                <li><a href="/shop2">Магазин #2(Университетская)</a></li>
+                <li><a href="/shop3">Магазин #3(Алексеевка)</a></li>
+                <li><a href="/shop4">Магазин #4(Французский бульвар)</a></li>
+                <li><a href="/shop5">Магазин #5(пл. Свободы)</a></li>
+                <li><a href="/shop6">Магазин #6(Петровского)</a></li>
             </ul>
         </li>
         <li><a href=" #">
@@ -61,7 +61,8 @@
             Выход</a></li>
     </ul>
 </div>
-<center><h1>Магазин #${shopId}</h1></center>
+
+<center><h1>Магазин #${shopId} (${shopName})</h1></center>
 
 <div name="search" align="middle" id="search">
     <p>
@@ -76,6 +77,7 @@
             <th>Категория</th>
             <th>Производитель</th>
             <th>Модель</th>
+            <th>Описание</th>
             <th>Количество</th>
         </tr>
         </thead>
@@ -86,6 +88,7 @@
                 <td><c:out value="${storage.productDto.categoryDto.nameCategory}"> </c:out></td>
                 <td><c:out value="${storage.productDto.brand}"> </c:out></td>
                 <td><c:out value="${storage.productDto.nameProduct}"> </c:out></td>
+                <td><c:out value="${storage.productDto.description}"> </c:out></td>
                 <td>4</td>
             </tr>
         </c:forEach>

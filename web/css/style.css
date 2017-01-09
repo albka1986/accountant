@@ -44,6 +44,11 @@ BODY {
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
 }
 
+.table_blur tr {
+    text-align: center;
+}
+
+
 .table_blur tr:nth-child(odd) {
     background: #ebf3f9;
 }
