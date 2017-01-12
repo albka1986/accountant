@@ -90,8 +90,14 @@ public class CategoryDaoImpl extends BaseDao implements CrudDao<Category> {
     }
 
     public Category findByName(String nameCategory) {
-        Category category = (Category) getActiveSession().createCriteria(Category.class)
-                .add(Restrictions.eq("nameCategory", nameCategory));
+        Category category = null;
+        Session session = getActiveSession();
+        Category temp = (Category) session.createCriteria(Category.class)
+                .add(Restrictions.eq("nameCategory", nameCategory))
+                .uniqueResult();
+        if (temp != null) {
+            category = temp;
+        }
         return category;
     }
 }

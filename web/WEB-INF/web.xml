@@ -7,6 +7,6 @@
 
     <display-name>Accountant for Alfacell</display-name>
     <session-config>
-        <session-timeout>1200</session-timeout>
+        <session-timeout>-1</session-timeout>
     </session-config>
 </web-app>

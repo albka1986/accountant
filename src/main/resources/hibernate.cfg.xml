@@ -12,9 +12,10 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_accountant</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
-
         <property name="hibernate.show_sql">false</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.pool_size">50</property>
+        <property name="connection.autocommit">true</property>
 
         <mapping class="ua.com.alfacell.models.User"/>
         <mapping class="ua.com.alfacell.models.Product"/>

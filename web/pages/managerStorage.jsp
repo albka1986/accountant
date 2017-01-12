@@ -70,10 +70,10 @@
                                                                                      placeholder="   Поиск..."/></p>
 
     <form action="/ServletDeleteProduct" method="post">
-        <a href="#addCategory"><img src="../resources/icons/addCategory.png"></a>
-        <a href="#addProduct"><img src="../resources/icons/add.png"></a>
-        <button id="deleteButton" formaction="#"><img src="../resources/icons/edit.png"></button>
-        <button id="deleteButton" type="submit"><img src="../resources/icons/del.png"></button>
+        <a href="#addCategory"><img src="../resources/icons/addCategory.png" alt="Добавить категорию"></a>
+        <a href="#addProduct"><img src="../resources/icons/add.png" alt="Добавить новый товар"></a>
+        <button id="deleteButton" formaction="#"><img src="../resources/icons/edit.png" alt="Изменить товар"></button>
+        <button id="deleteButton" type="submit"><img src="../resources/icons/del.png" alt="Удалить товар"></button>
 
         <%--<table class="table" id="myTable">--%>
         <table class="table_blur" id="myTable">

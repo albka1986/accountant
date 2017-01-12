@@ -10,11 +10,8 @@ public class BaseDao {
 
 
     protected Session getActiveSession() {
-        synchronized (this) {
             Session session = sessionFactory.openSession();
             return session;
-        }
-
     }
 
 

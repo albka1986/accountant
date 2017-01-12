@@ -146,7 +146,6 @@ public class ServiceTests {
 
     @Test(invocationCount = 10)
     public void testFindCategoryByNameBool() {
-        System.out.println("Enter");
         CategoryService categoryService = new CategoryService();
         String testNameCategory = "asdasaq21asda";
 
@@ -161,7 +160,6 @@ public class ServiceTests {
         result = categoryService.nameCategoryExists(testNameCategory);
         Assert.assertTrue(result);
         categoryService.delete(categoryService.findByName(testNameCategory));
-        System.out.println("Exit");
     }
 
 }

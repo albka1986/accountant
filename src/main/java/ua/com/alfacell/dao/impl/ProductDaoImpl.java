@@ -10,12 +10,14 @@ import ua.com.alfacell.models.Product;
 import java.util.List;
 
 public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
+    static int count = 0;
     @Override
     public Product findById(int id) {
         Session session = getActiveSession();
         Product product = (Product) session.createCriteria(Product.class)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
+        session.close();
         return product;
     }
 
@@ -23,6 +25,7 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
     public List<Product> findAll() {
         Session session = getActiveSession();
         List<Product> products = session.createCriteria(Product.class).list();
+        session.close();
         return products;
     }
 
@@ -40,6 +43,7 @@ public class ProductDaoImpl extends BaseDao implements CrudDao<Product> {
             if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
+            System.out.println(++count);
             session.close();
         }
     }

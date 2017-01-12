@@ -339,4 +339,13 @@ public class DaoTests {
 
     }
 
+    @Test
+    public void findCategoryByName() {
+        CategoryDaoImpl categoryDao = new CategoryDaoImpl();
+        Category category = categoryDao.findByName("Телефоны");
+        Assert.assertNotNull(category);
+        System.out.println(category.getId());
+
+    }
+
 }

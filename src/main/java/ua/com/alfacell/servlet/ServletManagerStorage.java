@@ -28,6 +28,12 @@ public class ServletManagerStorage extends HttpServlet {
             ProductService productService = new ProductService();
             if (productService.findAll().size() != 0) {
                 List<ProductDto> productDtos = productService.findAll();
+                Collections.sort(productDtos, new Comparator<ProductDto>() {
+                    @Override
+                    public int compare(ProductDto o1, ProductDto o2) {
+                        return o2.getId().compareTo(o1.getId());
+                    }
+                });
                 req.getSession().setAttribute("products", productDtos);
             }
 
