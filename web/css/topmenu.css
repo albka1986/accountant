@@ -114,6 +114,7 @@
     white-space: nowrap;
     float: left;
     text-transform: none;
+    text-shadow: none;
 }
 
 #menu ul a:hover {
